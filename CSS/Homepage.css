@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,800);
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+.header h1 {
+    position: relative;
+    color: aliceblue;
+    top: 2px;
+    left: 600px;
+    font-size: 40px;
+    font-family: Palatino, URW Palladio L, serif;
+}
+
+#navbar {
+    display: flex;
+    align-items: left;
+    border-bottom: 5px solid orange;
+    background: rgb(103, 106, 126);
+    background: radial-gradient(
+        circle,
+        rgba(103, 106, 126, 1) 0%,
+        rgba(24, 72, 129, 1) 100%
+    );
+}
+
+#navbar::before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    /* top: 0px;
+    right: 0px; */
+    height: 17%;
+    width: 100%;
+    z-index: -1;
+    opacity: 1.5;
+}
+
+#navbar ul {
+    display: flex;
+}
+
+#navbar ul li {
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a {
+    display: block;
+    color: white;
+    border-radius: 20px;
+    padding: 3px 15px;
+    margin: 23px 20px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+#navbar ul li a:hover {
+    color: black;
+    background-color: white;
+}
+
+#logo img {
+    margin: 5px 30px;
+}
+
+.sign_btn {
+    height: 50px;
+    width: 160px;
+    font-size: 18px;
+    color: white;
+    border-radius: 12px;
+    margin-top: 1cm;
+    margin-left: 70%;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+}
+.sign_btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    z-index: -1;
+    transition: 0.8s;
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+.sign_btn:hover::before {
+    height: 180%;
+}
+section.container {
+    text-align: center;
+    margin-left: 5cm;
+    background: #a2dfef;
+}
+#header_vesrepo {
+    margin-left: 4cm;
+    margin-top: 1cm;
+    font-family: cursive;
+    line-height: 1.2cm;
+    font-family: "Oxygen", sans-serif;
+}
+section.container1 {
+    margin-top: 1cm;
+    margin-left: 4cm;
+}
+section.container2 {
+    margin-top: 1.5cm;
+    margin-left: 4cm;
+}
+section.container3 {
+    margin-top: 1.5cm;
+    margin-left: 4cm;
+}
+
+a:hover {
+    border-bottom: 1px solid black;
+}
+
+button:hover {
+    cursor: pointer;
+    color: black;
+    background-color: orange;
+}
+button {
+    background: transparent;
+    outline: none;
+    position: relative;
+    border: 2px solid orange;
+    padding: 15px 50px;
+    overflow: hidden;
+    border-radius: 25px;
+    width: 260px;
+}
+
+/*button:before (attr data-hover)*/
+button:hover:before {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+button:before {
+    content: attr(data-hover);
+    position: absolute;
+    top: 1.2em;
+    left: 0;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 1em;
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all 0.3s ease-in-out;
+}
+/*button div (button text before hover)*/
+button:hover div {
+    opacity: 0;
+    transform: translate(100%, 0);
+}
+button div {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 1em;
+    transition: all 0.3s ease-in-out;
+    color: black;
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
+    font-family: "Poppins", sans-serif;
+}
+
+.circular-img {
+    position: absolute;
+    top: 17.3%;
+    right: 5em;
+}
