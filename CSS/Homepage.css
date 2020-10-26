@@ -18,7 +18,7 @@ body {
 
 #navbar {
     display: flex;
-    align-items: left;
+    align-items: inherit;
     border-bottom: 5px solid orange;
     background: rgb(103, 106, 126);
     background: radial-gradient(
