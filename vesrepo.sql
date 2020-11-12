@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2020 at 07:05 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.1.31
+-- Generation Time: Nov 12, 2020 at 07:18 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -130,37 +129,11 @@ CREATE TABLE `paper_published` (
 
 CREATE TABLE `profile` (
   `account_id` int(255) NOT NULL,
+  `user_id` int(255) NOT NULL,
   `hobbies` varchar(255) NOT NULL,
   `social_media` varchar(255) NOT NULL,
   `profile_pic` blob NOT NULL,
   `display_pic` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student`
---
-
-CREATE TABLE `student` (
-  `user_id` int(255) NOT NULL,
-  `branch` varchar(255) NOT NULL,
-  `semester` int(255) NOT NULL,
-  `roll_no` int(255) NOT NULL,
-  `year` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `teacher`
---
-
-CREATE TABLE `teacher` (
-  `user_id` int(255) NOT NULL,
-  `role` varchar(255) NOT NULL,
-  `department` varchar(255) NOT NULL,
-  `qualification` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -175,22 +148,15 @@ CREATE TABLE `user` (
   `password` varchar(200) NOT NULL,
   `ves_email` varchar(200) NOT NULL,
   `first_name` varchar(200) NOT NULL,
-  `last_name` varchar(200) NOT NULL,
-  `account_id` int(255) NOT NULL
+  `last_name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `view_only`
+-- Dumping data for table `user`
 --
 
-CREATE TABLE `view_only` (
-  `user_id` int(255) NOT NULL,
-  `request_id` int(255) NOT NULL,
-  `is_approved` bit(60) NOT NULL,
-  `type` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `user` (`user_id`, `phone_no`, `password`, `ves_email`, `first_name`, `last_name`) VALUES
+(1000, 2147483647, 'ii', '2018.nagesh.nayak@ves.ac.in', 'nagesh', 'nayak');
 
 -- --------------------------------------------------------
 
@@ -215,89 +181,72 @@ CREATE TABLE `workshops` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`email`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `request_id` (`request_id`);
+  ADD KEY `user_fk0` (`user_id`);
 
 --
 -- Indexes for table `competitions`
 --
 ALTER TABLE `competitions`
-  ADD PRIMARY KEY (`name`),
-  ADD KEY `account_id` (`account_id`);
+  ADD PRIMARY KEY (`name`);
 
 --
 -- Indexes for table `conference`
 --
 ALTER TABLE `conference`
-  ADD PRIMARY KEY (`name`),
-  ADD KEY `account_fk02` (`account_id`);
+  ADD PRIMARY KEY (`name`);
 
 --
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
-  ADD PRIMARY KEY (`name`),
-  ADD KEY `account_fk01` (`account_id`);
+  ADD PRIMARY KEY (`name`);
 
 --
 -- Indexes for table `internships`
 --
 ALTER TABLE `internships`
-  ADD PRIMARY KEY (`company_name`),
-  ADD KEY `account_fk03` (`account_id`);
-
---
--- Indexes for table `other`
---
-ALTER TABLE `other`
-  ADD KEY `account_fk04` (`account_id`);
+  ADD PRIMARY KEY (`company_name`);
 
 --
 -- Indexes for table `paper_published`
 --
 ALTER TABLE `paper_published`
-  ADD PRIMARY KEY (`topic`),
-  ADD KEY `account_fk05` (`account_id`);
+  ADD PRIMARY KEY (`topic`);
 
 --
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
-  ADD PRIMARY KEY (`account_id`);
-
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD KEY `user_fk01` (`user_id`);
-
---
--- Indexes for table `teacher`
---
-ALTER TABLE `teacher`
-  ADD KEY `user_fk02` (`user_id`);
+  ADD PRIMARY KEY (`account_id`),
+  ADD KEY `user_fk1` (`user_id`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD KEY `account_fk08` (`account_id`);
-
---
--- Indexes for table `view_only`
---
-ALTER TABLE `view_only`
-  ADD PRIMARY KEY (`request_id`),
-  ADD KEY `user_fk03` (`user_id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `workshops`
 --
 ALTER TABLE `workshops`
-  ADD PRIMARY KEY (`name`),
-  ADD KEY `account_fk06` (`account_id`);
+  ADD PRIMARY KEY (`name`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `profile`
+--
+ALTER TABLE `profile`
+  MODIFY `account_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 
 --
 -- Constraints for dumped tables
@@ -307,74 +256,13 @@ ALTER TABLE `workshops`
 -- Constraints for table `admin`
 --
 ALTER TABLE `admin`
-  ADD CONSTRAINT `request_id` FOREIGN KEY (`request_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `user_fk0` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `competitions`
+-- Constraints for table `profile`
 --
-ALTER TABLE `competitions`
-  ADD CONSTRAINT `account_id` FOREIGN KEY (`account_id`) REFERENCES `profile` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `conference`
---
-ALTER TABLE `conference`
-  ADD CONSTRAINT `account_fk02` FOREIGN KEY (`account_id`) REFERENCES `profile` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `courses`
---
-ALTER TABLE `courses`
-  ADD CONSTRAINT `account_fk01` FOREIGN KEY (`account_id`) REFERENCES `profile` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `internships`
---
-ALTER TABLE `internships`
-  ADD CONSTRAINT `account_fk03` FOREIGN KEY (`account_id`) REFERENCES `profile` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `other`
---
-ALTER TABLE `other`
-  ADD CONSTRAINT `account_fk04` FOREIGN KEY (`account_id`) REFERENCES `profile` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `paper_published`
---
-ALTER TABLE `paper_published`
-  ADD CONSTRAINT `account_fk05` FOREIGN KEY (`account_id`) REFERENCES `profile` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `student`
---
-ALTER TABLE `student`
-  ADD CONSTRAINT `user_fk01` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `teacher`
---
-ALTER TABLE `teacher`
-  ADD CONSTRAINT `user_fk02` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `account_fk08` FOREIGN KEY (`account_id`) REFERENCES `profile` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `view_only`
---
-ALTER TABLE `view_only`
-  ADD CONSTRAINT `user_fk03` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `workshops`
---
-ALTER TABLE `workshops`
-  ADD CONSTRAINT `account_fk06` FOREIGN KEY (`account_id`) REFERENCES `profile` (`account_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `profile`
+  ADD CONSTRAINT `user_fk1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
