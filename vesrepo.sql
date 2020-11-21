@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2020 at 07:18 PM
+-- Generation Time: Nov 21, 2020 at 08:02 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -148,15 +148,23 @@ CREATE TABLE `user` (
   `password` varchar(200) NOT NULL,
   `ves_email` varchar(200) NOT NULL,
   `first_name` varchar(200) NOT NULL,
-  `last_name` varchar(200) NOT NULL
+  `last_name` varchar(200) NOT NULL,
+  `branch` varchar(255) NOT NULL,
+  `semester` int(255) NOT NULL,
+  `roll_no` int(255) NOT NULL,
+  `year` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `phone_no`, `password`, `ves_email`, `first_name`, `last_name`) VALUES
-(1000, 2147483647, 'ii', '2018.nagesh.nayak@ves.ac.in', 'nagesh', 'nayak');
+INSERT INTO `user` (`user_id`, `phone_no`, `password`, `ves_email`, `first_name`, `last_name`, `branch`, `semester`, `roll_no`, `year`) VALUES
+(1001, 2147483647, 'vv', 'nageshnayak2050@gmail.com', 'nagesh', 'nayak', 'INST', 0, 0, ''),
+(1003, 2147483647, 'qq', '2018.nagesh.nayak@ves.ac.in', 'nagesh', 'nayak', 'INFT', 1, 0, 'First Year'),
+(1004, 2147483647, '1c4f0c6eb8bf8bbf11cc2ae1cdcc5c5d1f3a3c16', '2018.nagesh.nayak@ves.ac.in', 'nagesh', 'nayak', 'INFT', 1, 12, 'First Year'),
+(1005, 2147483647, '17ba0791499db908433b80f37c5fbc89b870084b', '2018.nagesh.nayak@ves.ac.in', 'nagesh', 'nayak', 'INFT', 1, 11, 'First Year'),
+(1006, 0, '8effee409c625e1a2d8f5033631840e6ce1dcb64', '2018.nagesh.nayak@ves.ac.in', 'nagesh', 'nayak', 'INFT', 1, 66, 'First Year');
 
 -- --------------------------------------------------------
 
@@ -246,7 +254,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;
 
 --
 -- Constraints for dumped tables
