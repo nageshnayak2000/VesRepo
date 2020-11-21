@@ -76,22 +76,33 @@ body{
   font-size: 12px;
   color: #404040;
 }
+
+.personal-info-second h2, .personal-info-last h2{
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: rgba(24, 72, 129, 1);
+}
 .social-icons{
-  /* float: right; */
-  width: 25%;
-  text-align: right;
+  display: flex;
+  justify-content: center;
 }
 .social-icons i{
-  margin-top: 35px;
-  margin-bottom: 15px;
   color: #fff;
-  padding: 5px 5px 1px 0px;
+  padding: .8rem .8rem;
   border-radius: 50%;
-  font-size: 11px;
-  margin-right: 2px;
+  font-size: 18px;
+  text-align: center;
+  margin-right: 1rem;
   height: 14px;
   width: 14px;
+  transition: transform 0.3s ease;
 }
+.social-icons i:hover{
+  transform: scale(1.19);
+
+}
+
 .social-icons .fa-facebook{
   background-color: #365597;
 }
@@ -107,7 +118,7 @@ body{
 .social-icons .fa-instagram{
   background-color: #CF3594;
 }
-.msg-btn{ 
+/* .msg-btn{ 
   background: #fff;
   padding: 5px 11px;
   color: black;
@@ -118,7 +129,7 @@ body{
   padding: 0;
   color: black;
   margin-right: 7px;
-}
+} */
 
 
 /*tab*/
@@ -155,7 +166,7 @@ ul.tabs li:first-child{
   border-left: 2px solid #E2F3FB;
 }
 ul.tabs li.current{
-  background: #10A3FF;
+  background: rgba(24, 72, 129, 1);
   color: #fff;
   font-weight: 600;
 }
@@ -204,7 +215,7 @@ ul.tabs li.current{
 .bio-box{
  margin-top: 40px;
   /* float: left; */
-  width: 70%;
+  width: 100%;
   border:2px solid #ededed;
   border-radius: 4px;
   margin-left: 2px;
@@ -231,19 +242,27 @@ ul.tabs li.current{
   border-radius: 4px;
 }
 .bio-box .heading{
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 0px 10px;
 }
 .bio-box .heading p{
   text-align:center;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 1.3rem;
 }
 
 .bio-box .desc{
-  padding: 10px 10px 10px 10px;
-  text-align: justify;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  /* padding: 10px 10px 10px 10px; */
+  /* text-align: justify; */
+  /* align-items: center; */
   color: #838383;
   font-size: 20px;
+}
+
+.desc span{
+  margin-bottom: .3rem;
 }
 /* .bio-box .add-icon {
   position: relative;
@@ -258,7 +277,7 @@ ul.tabs li.current{
   font-size: 30px;
   font-weight: 900;
   padding: 0px 12px;
-  background-color: #10A3FF;
+  background-color: rgba(24, 72, 129, 1);
   color: white;
 
 }
@@ -266,56 +285,6 @@ ul.tabs li.current{
   text-align: center;
 }
 
-
-/* .modal-window {
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.25);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s;
-}
-  .modal-window:target {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .modal-window div {
-    width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2em;
-    background: #ffffff;
-  }
-  
-  .modal-window h1 {
-    font-size: 150%;
-    margin: 0 0 15px;
-  }
-
-
-.modal-close {
-  color: #aaa;
-  line-height: 50px;
-  font-size: 80%;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: 70px;
-  text-decoration: none;
- 
-}
-.modal-close:hover {
-  color: black;
-} */
 .divider{
     position: absolute;
     left:50%;
@@ -335,16 +304,41 @@ ul.tabs li.current{
 }
 .personal-info-first, .personal-info-second {
   border-bottom: 1px solid orange;
-  padding: 5px 5px 80px 5px;
+  padding: 5px 5px 30px 5px;
 }
-.personal-info-second, .personal-info-last {
+/* .personal-info-last {
   margin-top: 50px;
+} */
+
+.hobbies-list{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  font-size: 1.5rem;
+  font-weight: 500;
+  /* color: rgba(24, 72, 129, 1); */
 }
-.personal-info-last {
+/* .personal-info-last {
   padding-bottom: 50px;
+} */
+
+.personal-info-first .name{
+  text-transform: uppercase;
+  font-size: 2.6rem;
+  font-weight: 700;
+  text-align: center;
+  color: rgba(24, 72, 129, 1);
+  margin-bottom: .5rem;
+  text-shadow: 1px 1px 1px rgb(231, 105, 21);
 }
-.personal-info-second h2, .personal-info-last h2 {
-  margin-left: 12em;
+
+.personal-info-first .basic-details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgba(24, 72, 129, 1);
 }
 .detail-box p{
   font-weight: 600;
