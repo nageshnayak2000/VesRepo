@@ -245,12 +245,29 @@ ul.tabs li.current{
   color: #838383;
   font-size: 20px;
 }
-.bio-box .add-icon {
+/* .bio-box .add-icon {
   position: relative;
   margin-left: 350px;
   top: 8px;
+} */
+
+
+.add-button{
+  box-sizing: border-box;
+  border-radius: 50%;
+  font-size: 30px;
+  font-weight: 900;
+  padding: 0px 12px;
+  background-color: #542654;
+  color: white;
+
 }
-.modal-window {
+.button{
+  text-align: center;
+}
+
+
+/* .modal-window {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.25);
   top: 0;
@@ -298,7 +315,7 @@ ul.tabs li.current{
 }
 .modal-close:hover {
   color: black;
-}
+} */
 .divider{
     position: absolute;
     left:50%;
