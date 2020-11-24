@@ -8,6 +8,17 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
 </head>
 <body>
+<div class="header">
+    <nav id="navbar">
+      <div id="logo">
+          <img src="Logo.png" alt="VESIT">
+      </div>
+      <h3>
+        VesRepo
+      </h3>     
+    </nav>
+  </div>
+  <div class="container_body">
   <div class="cont">
     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
         <div class="form sign-in">
@@ -21,7 +32,7 @@
             <input type="password" name="password">
         </label>
         <button class="submit" type="submit" name="login">Sign In</button>
-        <p class="forgot-pass">Forgot Password ?</p>
+        <!-- <p class="forgot-pass">Forgot Password ?</p> -->
         </div>
     </form>
 
@@ -75,6 +86,8 @@
       </div>
     </div>
   </div>
-<script type="text/javascript" src="script.js"></script> 
+
+<script type="text/javascript" src="login.js"></script> 
+      </div>
 </body> 
 </html>

@@ -7,15 +7,21 @@ require_once('config.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_register.css">
     <title>Simple Registration Form</title>
 </head>
 <body>
-    <div>
-        <?php
-        
-        ?>
-</div>
+  <div class="header">
+    <nav id="navbar">
+      <div id="logo">
+          <img src="Logo.png" alt="VESIT">
+      </div>
+      <h1>
+        VesRepo
+      </h1>     
+    </nav>
+  </div>
+  <br>
 <div>
     <form action="registration.php" method="post">
         <div class="container">
@@ -68,7 +74,7 @@ require_once('config.php');
             <input type="number" id="roll_no" name="roll_no" required>
           <div>
             <button type="submit" class="signupbtn" id="register" >Submit</button>
-            </div>
+          </div>
         </div>
 
     </form>

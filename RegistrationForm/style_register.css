@@ -5,15 +5,73 @@ body {
 * {
   box-sizing: border-box;
 }
+.header h1 {
+  position: relative;
+  color: aliceblue;
+  top: 2px;
+  left: 600px;
+  font-size: 40px;
+  font-family: Palatino, URW Palladio L, serif;
+}
 
+#navbar {
+  display: flex;
+  align-items: inherit;
+  border-bottom: 5px solid orange;
+  background: rgb(103, 106, 126);
+  background: radial-gradient(
+    circle,
+    rgba(103, 106, 126, 1) 0%,
+    rgba(24, 72, 129, 1) 100%
+  );
+}
+
+/* #navbar::before {
+  content: "";
+  background-color: black;
+  position: absolute;
+  /* top: 0px;
+    right: 0px;
+  height: 17%;
+  width: 100%;
+  z-index: -1;
+  opacity: 1.5;
+} */
+
+#navbar ul {
+  display: flex;
+}
+
+#navbar ul li {
+  list-style: none;
+  font-size: 1.3rem;
+}
+
+#navbar ul li a {
+  display: block;
+  color: white;
+  border-radius: 20px;
+  padding: 3px 15px;
+  margin: 23px 20px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+#navbar ul li a:hover {
+  color: black;
+  background-color: white;
+}
+
+#logo img {
+  margin: 5px 30px;
+}
 /* Add padding to container elements */
 .container {
   padding: 20px;
   width: 500px;
   margin-top: 400px;
-  margin-left: 400px;
+  margin-left: 750px;
   left: 50%;
-  top: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid #ccc;
   border-radius: 10px;
