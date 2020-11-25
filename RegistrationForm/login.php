@@ -81,7 +81,7 @@
         </div>
       </div>
       <div class="form sign-up">
-        <button type="button" class="submit">Register As Student</button>
+        <button onclick="location.href='registration.php'" type="button" class="submit">Register As Student</button>
         <button type="button" class="submit">Register As Teacher</button>
       </div>
     </div>
