@@ -1,1 +1,4 @@
-<h1>LOGGED IN!!</h1>
+<?php
+session_start();
+echo "Welcome ".$_SESSION['branch'];
+?>

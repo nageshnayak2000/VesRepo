@@ -1,3 +1,11 @@
+<?php
+session_start();
+$user_first=$_SESSION['username'];
+$userid= $_SESSION['id'];
+$branch= $_SESSION['branch'];
+$year= $_SESSION['year'];
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -21,6 +29,13 @@
 	if(!$conn){
 		   die('Could not Connect My Sql:' .mysql_error());
 	}
+	$account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
+	$account_result=mysqli_query($conn, $account_id);
+	foreach($account_result as $account_results){
+		foreach($account_results as $key => $accountid){
+			echo "$key: $accountid";
+		}
+	}
 	//include_once 'config.php';
 	if(isset($_POST['save']))
 	{	 
@@ -32,7 +47,7 @@
 		 $img = $_POST['img'];
 		 $role= $_POST['role'];
 		 $sql = "INSERT INTO internships (company_name,start_date, end_date,cert_pic, account_id, Role)
-		 VALUES ('$title','$st_date','$end_date','$img', '(SELECT RAND(6))', '$role')" ;
+		 VALUES ('$title','$st_date','$end_date','$img', '$accountid', '$role')" ;
 		 if (mysqli_query($conn, $sql)) {
 			echo "New record created successfully !";
 		 } else {
@@ -50,7 +65,7 @@
 	 	 //$desc = $_POST['desc'];
 	 	 $img = $_POST['img'];
 	 	 $sql = "INSERT INTO competitions (name,description,cert_pic,date, account_id)
-	 	 VALUES ('$title_comp','$desc','$date','$img', '(SELECT RAND(6))')" ;
+	 	 VALUES ('$title_comp','$desc','$date','$img', '$accountid')" ;
 	 	 if (mysqli_query($conn, $sql)) {
 	 		echo "New record created successfully !";
 	 	 } else {
@@ -68,7 +83,7 @@
 	 	 //$desc = $_POST['desc'];
 	 	 $img = $_POST['img'];
 	 	 $sql = "INSERT INTO other (type,description,date,cert_pic, account_id)
-	 	 VALUES ('$type','$desc','$date','$img', '(SELECT RAND(6))')" ;
+	 	 VALUES ('$type','$desc','$date','$img', '$accountid')" ;
 	 	 if (mysqli_query($conn, $sql)) {
 	 		echo "New record created successfully !";
 	 	 } else {
@@ -87,7 +102,7 @@
 		 $img = $_POST['img'];
 		 
 		 $sql = "INSERT INTO courses (name,start_date, end_date,cert_pic, account_id)
-		 VALUES ('$name','$st_date','$end_date','$img', '(SELECT RAND(6))')" ;
+		 VALUES ('$name','$st_date','$end_date','$img', '$accountid')" ;
 		 if (mysqli_query($conn, $sql)) {
 			echo "New record created successfully !";
 		 } else {
@@ -335,15 +350,17 @@
 						</div>
 						<div class="overlay"></div>
 					</div>
+					
 					<div class="detail-box">
 						<div class="personal-info-first">
-							<div class="name">nagesh nayak</div>
+							<div class="name"><?php echo $user_first ?></div>
 							<div class="basic-details">
-								<span>Branch : INFT</span>
-								<span>Year : 2018</span>
+								<span>Branch : <?php echo $branch?></span>
+								<span>Year : <?php echo $year?></span>
 							</div>
 
 						</div>
+						
 						<div class="personal-info-second">
 							<h2>Contact</h2>
 							<div class="social-icons">
