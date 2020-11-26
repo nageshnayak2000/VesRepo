@@ -16,7 +16,7 @@
 	$servername='localhost';
 	$username='root';
 	$password='';
-	$dbname = "vesrepo2";
+	$dbname = "vesrepo";
 	$conn=mysqli_connect($servername,$username,$password,$dbname);
 	if(!$conn){
 		   die('Could not Connect My Sql:' .mysql_error());
@@ -31,8 +31,9 @@
 		 $end_date = $_POST['end_date'];
 		 //$desc = $_POST['desc'];
 		 $img = $_POST['img'];
-		 $sql = "INSERT INTO internships (company_name,start_date, end_date,cert_pic, account_id)
-		 VALUES ('$title','$st_date','$end_date','$img', '(SELECT RAND(6))')" ;
+		 $role= $_POST['role'];
+		 $sql = "INSERT INTO internships (company_name,start_date, end_date,cert_pic, account_id, Role)
+		 VALUES ('$title','$st_date','$end_date','$img', '(SELECT RAND(6))', '$role')" ;
 		 if (mysqli_query($conn, $sql)) {
 			echo "New record created successfully !";
 		 } else {
@@ -77,6 +78,26 @@
 	 	 }
 		 
 	 }
+	 if(isset($_POST['save_course']))
+	{	 
+		
+		 $name = $_POST['name'];
+		 $st_date = $_POST['st_date'];
+		 $end_date = $_POST['end_date'];
+		 //$desc = $_POST['desc'];
+		 $img = $_POST['img'];
+		 
+		 $sql = "INSERT INTO courses (name,start_date, end_date,cert_pic, account_id)
+		 VALUES ('$name','$st_date','$end_date','$img', '(SELECT RAND(6))')" ;
+		 if (mysqli_query($conn, $sql)) {
+			echo "New record created successfully !";
+		 } else {
+			echo "Error: " . $sql . "
+	" . mysqli_error($conn);
+		 }
+		 
+	}
+	 
 	
 	$query2= "SELECT * from internships";
 	$result2= mysqli_query($conn, $query2);
@@ -84,6 +105,8 @@
 	$result3= mysqli_query($conn, $query3);
 	$query4= "SELECT * from other";
 	$result4= mysqli_query($conn, $query4);
+	$query5= "SELECT * from courses";
+	$result5= mysqli_query($conn, $query5);
 	?>
 		
 	
@@ -126,7 +149,7 @@
                           while($row = mysqli_fetch_array($result2))  
                           {  
                           ?>  
-							<span><?php echo $row["company_name"]; ?></span>
+							<p><span><i class="fa fa-check-circle" aria-hidden="true"></i></span><span><?php echo $row["Role"]; ?></span><span><span>,</span><?php echo $row["company_name"]; ?></span></p>
                             
                           <?php  
                           }  
@@ -148,6 +171,7 @@
 								<div class="certificate">
 									<div class="input-fields">
 										<input type="text" class="input" name="title" placeholder="Company name">
+										<input type="text" class="input" name="role" placeholder="Role/Position in Company">
 
 										<input type="text" name="st_date" placeholder="Start Date" class="input" onfocus="(this.type='date')"
 											onblur="(this.type='text')">
@@ -187,8 +211,8 @@
                           while($row = mysqli_fetch_array($result3))  
                           {  
                           ?>  
-							<span><?php echo $row["name"]; ?></span>
-                            
+							<p><span><i class="fa fa-check-circle" aria-hidden="true"></i></span><span><?php echo $row["name"]; ?></span>
+                            </p>
                           <?php  
                           }  
                           ?> 
@@ -240,8 +264,8 @@
                           while($row = mysqli_fetch_array($result4))  
                           {  
                           ?>  
-							<span><?php echo $row["type"]; ?></span>
-                            
+							<p><span><i class="fa fa-check-circle" aria-hidden="true"></i></span<span><?php echo $row["type"]; ?></span>
+                            </p>
                           <?php  
                           }  
                           ?> 
@@ -342,46 +366,186 @@
 									<!-- <label>10 Year Experience</label></p> -->
 							</div>
 							<div class="desc">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+							<?php 
+							// if ($result5==null) {
+							// 	echo "No courses added";
+							// }
+                          while($row = mysqli_fetch_array($result5))  
+                          {  
+							  
+							  if(sizeof($row) == 0 ){?>
+
+							<span><?php	  echo "No courses added"; ?></span>
+							<?php
+							  }
+							  ?>
+                          
+							<span><?php echo $row["name"]; ?></span>
+                            
+                          <?php  
+                          }  
+                          ?> 
 							</div>
-							<div class="add-icon">
+							<!-- <div class="add-icon">
 								<a href="#open-modal"><i class="fas fa-plus-circle fa-2x"></i></a>
-							</div>
+							</div> -->
+							<input type="checkbox" id="click4" style="display:none" />
+						<label for="click4">
+							<div class="button"><a class="add-button">+</a></div>
+						</label>
+							<div class="modal">
+							<div class="modal__content">
+								<div class="title">
+									<h1>Add Courses</h1>
+								</div>
+								<form method="POST" action="profile.php" class="add-form">
 
-						</div>
+								<div class="certificate">
+									<div class="input-fields">
+										<input type="text" class="input" name="name" placeholder="Name">
 
-						<div class="bio-box">
-							<div class="heading">
-								<p>Conferences
-									<!-- <label>10 Year Experience</label></p> -->
-							</div>
-							<div class="desc">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-							</div>
-							<div class="add-icon">
-								<a href="#"><i class="fas fa-plus-circle fa-2x"></i></a>
-							</div>
+										<input type="text" name="st_date" placeholder="Start Date" class="input" onfocus="(this.type='date')"
+											onblur="(this.type='text')">
+
+											<input type="text" name="end_date" placeholder="End Date" class="input" onfocus="(this.type='date')"
+											onblur="(this.type='text')">
+
+										<!-- <textarea placeholder="Description"></textarea> -->
+										<div class="select-image">
+											<label for="img">Select image:</label>
+											<input type="file" id="img" name="img" accept="image/*">
+										</div>
+										<div class="buttons">
+											<button type="submit" name="save_course">Submit</button>
+											<label for="click4" class="btn">
+												<a class="button-theme">Close</a>
+											</label>
+										</div>
+									</div>
+								</div>
+						</form>
 						</div>
-						<div class="bio-box">
+						</div>
+						<div class="overlay"></div>
+					</div>
+
+						
+				<div class="bio-box">
 							<div class="heading">
 								<p>Workshops
 									<!-- <label>10 Year Experience</label></p> -->
 							</div>
 							<div class="desc">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+							<?php  
+                          while($row = mysqli_fetch_array($result5))  
+                          {  
+                          ?>  
+							<p><span><i class="fa fa-check-circle" aria-hidden="true"></i></span<span><?php echo $row["name"]; ?></span>
+                            </p>
+                          <?php  
+                          }  
+                          ?> 
 							</div>
-							<div class="add-icon">
-								<a href="#"><i class="fas fa-plus-circle fa-2x"></i></a>
-							</div>
+							<!-- <div class="add-icon">
+								<a href="#open-modal"><i class="fas fa-plus-circle fa-2x"></i></a>
+							</div> -->
+							<input type="checkbox" id="click5" style="display:none" />
+						<label for="click5">
+							<div class="button"><a class="add-button">+</a></div>
+						</label>
+							<div class="modal">
+							<div class="modal__content">
+								<div class="title">
+									<h1>Add Courses</h1>
+								</div>
+								<form method="POST" action="profile.php" class="add-form">
+
+								<div class="certificate">
+									<div class="input-fields">
+										<input type="text" class="input" name="name" placeholder="Name">
+
+										<input type="text" name="st_date" placeholder="Start Date" class="input" onfocus="(this.type='date')"
+											onblur="(this.type='text')">
+
+											<input type="text" name="end_date" placeholder="End Date" class="input" onfocus="(this.type='date')"
+											onblur="(this.type='text')">
+
+										<!-- <textarea placeholder="Description"></textarea> -->
+										<div class="select-image">
+											<label for="img">Select image:</label>
+											<input type="file" id="img" name="img" accept="image/*">
+										</div>
+										<div class="buttons">
+											<button type="submit" name="save_con">Submit</button>
+											<label for="click5" class="btn">
+												<a class="button-theme">Close</a>
+											</label>
+										</div>
+									</div>
+								</div>
+						</form>
 						</div>
+						</div>
+						<div class="overlay"></div>
 					</div>
-				</div>
+				<div class="bio-box">
+							<div class="heading">
+								<p>Workshops
+									<!-- <label>10 Year Experience</label></p> -->
+							</div>
+							<div class="desc">
+							<?php  
+                          while($row = mysqli_fetch_array($result5))  
+                          {  
+                          ?>  
+							<span><?php echo $row["name"]; ?></span>
+                            
+                          <?php  
+                          }  
+                          ?> 
+							</div>
+							<!-- <div class="add-icon">
+								<a href="#open-modal"><i class="fas fa-plus-circle fa-2x"></i></a>
+							</div> -->
+							<input type="checkbox" id="click5" style="display:none" />
+						<label for="click5">
+							<div class="button"><a class="add-button">+</a></div>
+						</label>
+							<div class="modal">
+							<div class="modal__content">
+								<div class="title">
+									<h1>Add Courses</h1>
+								</div>
+								<form method="POST" action="profile.php" class="add-form">
+
+								<div class="certificate">
+									<div class="input-fields">
+										<input type="text" class="input" name="name" placeholder="Name">
+
+										<input type="text" name="st_date" placeholder="Start Date" class="input" onfocus="(this.type='date')"
+											onblur="(this.type='text')">
+
+											<input type="text" name="end_date" placeholder="End Date" class="input" onfocus="(this.type='date')"
+											onblur="(this.type='text')">
+
+										<!-- <textarea placeholder="Description"></textarea> -->
+										<div class="select-image">
+											<label for="img">Select image:</label>
+											<input type="file" id="img" name="img" accept="image/*">
+										</div>
+										<div class="buttons">
+											<button type="submit" name="save_con">Submit</button>
+											<label for="click5" class="btn">
+												<a class="button-theme">Close</a>
+											</label>
+										</div>
+									</div>
+								</div>
+						</form>
+						</div>
+						</div>
+						<div class="overlay"></div>
+					</div>
 				<div id="Portfolio" class="tab-content">
 					<div class="portfolio-box">
 						<div class="portfolio-img-box">
