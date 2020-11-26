@@ -21,7 +21,6 @@
 	if(!$conn){
 		   die('Could not Connect My Sql:' .mysql_error());
 	}
-	echo "Connected";
 	//include_once 'config.php';
 	if(isset($_POST['save']))
 	{	 
@@ -107,11 +106,23 @@
 	$result4= mysqli_query($conn, $query4);
 	$query5= "SELECT * from courses";
 	$result5= mysqli_query($conn, $query5);
+	$query6= "SELECT * from courses";
+	$result6= mysqli_query($conn, $query6);
 	?>
 		
 	
 
 <body>
+<div class="header">
+    <nav id="navbar">
+      <div id="logo">
+          <img src="/Images/Logo.png" alt="VESIT">
+      </div>
+      <h3>
+        VesRepo
+      </h3>     
+    </nav>
+  </div>
 	<div class="profile-main">
 		<div class="profile-header">
 			<div class="user-detail">
@@ -140,12 +151,16 @@
 					</div>
 
 					<div class="bio-box">
+						<div class="hover-box">
 						<div class="heading">
 							<p>Internships
 								<!-- <label>10 Year Experience</label></p> -->
 						</div>
 						<div class="desc">
 						<?php  
+						if (mysqli_num_rows($result2)==0){
+							echo "No Internships added Yet!";
+						}
                           while($row = mysqli_fetch_array($result2))  
                           {  
                           ?>  
@@ -155,6 +170,7 @@
                           }  
                           ?>  
 							
+						</div>
 						</div>
 
 						<input type="checkbox" id="click1" style="display:none" />
@@ -202,12 +218,17 @@
 					</div>
 
 					<div class="bio-box">
+					<div class="hover-box">
+
 						<div class="heading">
 							<p>Competitions
 								<!-- <label>10 Year Experience</label></p> -->
 						</div>
 						<div class="desc">
 						<?php  
+						if (mysqli_num_rows($result3)==0){
+							echo "No Competitions added Yet!";
+						}
                           while($row = mysqli_fetch_array($result3))  
                           {  
                           ?>  
@@ -216,6 +237,7 @@
                           <?php  
                           }  
                           ?> 
+						</div>
 						</div>
 						<input type="checkbox" id="click2" style="display:none" />
 						<label for="click2">
@@ -255,12 +277,17 @@
 						<div class="overlay"></div>
 					</div>
 					<div class="bio-box">
+					<div class="hover-box">
+
 						<div class="heading">
 							<p>Other
 								<!-- <label>10 Year Experience</label></p> -->
 						</div>
 						<div class="desc">
 						<?php  
+						if (mysqli_num_rows($result4)==0){
+							echo "Nothing Yet!";
+						}
                           while($row = mysqli_fetch_array($result4))  
                           {  
                           ?>  
@@ -269,6 +296,7 @@
                           <?php  
                           }  
                           ?> 
+						</div>
 						</div>
 						<input type="checkbox" id="click3" style="display:none" />
 						<label for="click3">
@@ -361,6 +389,8 @@
 						 </div> -->
 
 						<div class="bio-box">
+						<div class="hover-box">
+
 							<div class="heading">
 								<p>Courses
 									<!-- <label>10 Year Experience</label></p> -->
@@ -370,14 +400,13 @@
 							// if ($result5==null) {
 							// 	echo "No courses added";
 							// }
+							if (mysqli_num_rows($result5)==0){
+								echo "No Courses added Yet!";
+							}
                           while($row = mysqli_fetch_array($result5))  
                           {  
 							  
-							  if(sizeof($row) == 0 ){?>
-
-							<span><?php	  echo "No courses added"; ?></span>
-							<?php
-							  }
+							  
 							  ?>
                           
 							<span><?php echo $row["name"]; ?></span>
@@ -386,6 +415,7 @@
                           }  
                           ?> 
 							</div>
+						</div>
 							<!-- <div class="add-icon">
 								<a href="#open-modal"><i class="fas fa-plus-circle fa-2x"></i></a>
 							</div> -->
@@ -431,13 +461,19 @@
 
 						
 				<div class="bio-box">
+				<div class="hover-box">
+
 							<div class="heading">
+
 								<p>Workshops
 									<!-- <label>10 Year Experience</label></p> -->
 							</div>
 							<div class="desc">
 							<?php  
-                          while($row = mysqli_fetch_array($result5))  
+							if (mysqli_num_rows($result6)==0){
+								echo "No Workshops added";
+							}
+                          while($row = mysqli_fetch_array($result6))  
                           {  
                           ?>  
 							<p><span><i class="fa fa-check-circle" aria-hidden="true"></i></span<span><?php echo $row["name"]; ?></span>
@@ -446,11 +482,12 @@
                           }  
                           ?> 
 							</div>
+						</div>
 							<!-- <div class="add-icon">
 								<a href="#open-modal"><i class="fas fa-plus-circle fa-2x"></i></a>
 							</div> -->
-							<input type="checkbox" id="click5" style="display:none" />
-						<label for="click5">
+							<input type="checkbox" id="click6" style="display:none" />
+						<label for="click6">
 							<div class="button"><a class="add-button">+</a></div>
 						</label>
 							<div class="modal">
@@ -476,8 +513,8 @@
 											<input type="file" id="img" name="img" accept="image/*">
 										</div>
 										<div class="buttons">
-											<button type="submit" name="save_con">Submit</button>
-											<label for="click5" class="btn">
+											<button type="submit" name="save_work">Submit</button>
+											<label for="click6" class="btn">
 												<a class="button-theme">Close</a>
 											</label>
 										</div>
@@ -488,64 +525,7 @@
 						</div>
 						<div class="overlay"></div>
 					</div>
-				<div class="bio-box">
-							<div class="heading">
-								<p>Workshops
-									<!-- <label>10 Year Experience</label></p> -->
-							</div>
-							<div class="desc">
-							<?php  
-                          while($row = mysqli_fetch_array($result5))  
-                          {  
-                          ?>  
-							<span><?php echo $row["name"]; ?></span>
-                            
-                          <?php  
-                          }  
-                          ?> 
-							</div>
-							<!-- <div class="add-icon">
-								<a href="#open-modal"><i class="fas fa-plus-circle fa-2x"></i></a>
-							</div> -->
-							<input type="checkbox" id="click5" style="display:none" />
-						<label for="click5">
-							<div class="button"><a class="add-button">+</a></div>
-						</label>
-							<div class="modal">
-							<div class="modal__content">
-								<div class="title">
-									<h1>Add Courses</h1>
-								</div>
-								<form method="POST" action="profile.php" class="add-form">
-
-								<div class="certificate">
-									<div class="input-fields">
-										<input type="text" class="input" name="name" placeholder="Name">
-
-										<input type="text" name="st_date" placeholder="Start Date" class="input" onfocus="(this.type='date')"
-											onblur="(this.type='text')">
-
-											<input type="text" name="end_date" placeholder="End Date" class="input" onfocus="(this.type='date')"
-											onblur="(this.type='text')">
-
-										<!-- <textarea placeholder="Description"></textarea> -->
-										<div class="select-image">
-											<label for="img">Select image:</label>
-											<input type="file" id="img" name="img" accept="image/*">
-										</div>
-										<div class="buttons">
-											<button type="submit" name="save_con">Submit</button>
-											<label for="click5" class="btn">
-												<a class="button-theme">Close</a>
-											</label>
-										</div>
-									</div>
-								</div>
-						</form>
-						</div>
-						</div>
-						<div class="overlay"></div>
-					</div>
+				
 				<div id="Portfolio" class="tab-content">
 					<div class="portfolio-box">
 						<div class="portfolio-img-box">
