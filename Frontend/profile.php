@@ -493,7 +493,7 @@
 							<div class="modal">
 							<div class="modal__content">
 								<div class="title">
-									<h1>Add Courses</h1>
+									<h1>Add Workshops</h1>
 								</div>
 								<form method="POST" action="profile.php" class="add-form">
 
