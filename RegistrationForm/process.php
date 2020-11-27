@@ -19,6 +19,20 @@ if(isset($_POST)){
     $result = $stmtinsert->execute([$firstname,$lastname,$email,$phonenumber,$password,$Branch,$Semester,$Year,$roll_no]);
         if($result){
             echo "Successfully saved.";
+            $sql2= "SELECT user_id FROM user WHERE ves_email = '{$email}' AND password = '{$password}' ";
+            $result2 = mysqli_query($conn, $sql2) or die("Query Falied");	  
+            foreach($result2 as $idd){
+                foreach($idd as $key => $id){
+                    "$key: $id";
+                }
+            }        
+            $qu="INSERT INTO profile(user_id) VALUES({$id})";
+                  if(mysqli_query($conn, $qu)){
+                    echo "profile updated";
+                    } else {
+                      echo mysqli_error($conn);
+                  }
+                
         }else{
             echo 'There were errors while saving the data';
         }

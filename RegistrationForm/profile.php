@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["loggedin"])){
+	
+	header('location:check.php');
+}
 $user_first=$_SESSION['username'];
 $userid= $_SESSION['id'];
 $branch= $_SESSION['branch'];
@@ -29,13 +34,24 @@ $year= $_SESSION['year'];
 	if(!$conn){
 		   die('Could not Connect My Sql:' .mysql_error());
 	}
+	// $update_sql="UPDATE profile set account_id=1014 WHERE user_id='{$userid}'";
+	// $upd= mysqli_query($conn,$update_sql);
+	// if (mysqli_query($conn, $update_sql)) {
+	// 	echo "Record updated successfully";
+	//   } else {
+	// 	echo "Error updating record: " . mysqli_error($conn);
+	//   }
+	  
+	  
+
 	$account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
 	$account_result=mysqli_query($conn, $account_id);
 	foreach($account_result as $account_results){
 		foreach($account_results as $key => $accountid){
-			echo "$key: $accountid";
+			"$key: $accountid";
 		}
 	}
+	echo "$accountid";
 	//include_once 'config.php';
 	if(isset($_POST['save']))
 	{	 
@@ -47,7 +63,7 @@ $year= $_SESSION['year'];
 		 $img = $_POST['img'];
 		 $role= $_POST['role'];
 		 $sql = "INSERT INTO internships (company_name,start_date, end_date,cert_pic, account_id, Role)
-		 VALUES ('$title','$st_date','$end_date','$img', '$accountid', '$role')" ;
+		 VALUES ('$title','$st_date','$end_date','$img', '$accountid', '$role') " ;
 		 if (mysqli_query($conn, $sql)) {
 			echo "New record created successfully !";
 		 } else {
@@ -113,15 +129,15 @@ $year= $_SESSION['year'];
 	}
 	 
 	
-	$query2= "SELECT * from internships";
+	$query2= "SELECT * from internships where account_id='{$accountid}'";
 	$result2= mysqli_query($conn, $query2);
-	$query3= "SELECT * from competitions";
+	$query3= "SELECT * from competitions where account_id='{$accountid}'";
 	$result3= mysqli_query($conn, $query3);
-	$query4= "SELECT * from other";
+	$query4= "SELECT * from other where account_id='{$accountid}'";
 	$result4= mysqli_query($conn, $query4);
-	$query5= "SELECT * from courses";
+	$query5= "SELECT * from courses where account_id='{$accountid}'";
 	$result5= mysqli_query($conn, $query5);
-	$query6= "SELECT * from courses";
+	$query6= "SELECT * from courses where account_id='{$accountid}'";
 	$result6= mysqli_query($conn, $query6);
 	?>
 		
@@ -564,6 +580,9 @@ $year= $_SESSION['year'];
 		<div style="clear: both;"></div>
 
 	</div>
+	<?php
+		session_destroy();
+	?>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('ul.tabs li').click(function () {

@@ -43,14 +43,15 @@
             $password = sha1($_POST['password']);
 
             $sql = "SELECT * FROM user WHERE ves_email = '{$email}' AND password = '{$password}'";
-
-            $result = mysqli_query($conn, $sql) or die("Query Falied");
-
+          
+            $result = mysqli_query($conn, $sql) or die("Query Falied");	          
+              
             if(mysqli_num_rows($result) > 0)
             {
               session_start();
                 while($row = mysqli_fetch_assoc($result)){
-                    
+                  
+                  $_SESSION["loggedin"]=TRUE;
                     $_SESSION["id"] = $row['user_id'];
                     $_SESSION["email"] = $row['ves_email'];
                     $_SESSION["username"]= $row['first_name'];
@@ -59,8 +60,9 @@
 
 
                 }
-                //  $_SESSION["username"]= $row['first_name']
                 header("Location: profile.php");
+
+                //  $_SESSION["username"]= $row['first_name']
             }
             else{
                 echo "Enter correct user name or password";
