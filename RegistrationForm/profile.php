@@ -1,14 +1,27 @@
-<?php
-session_start();
+<?php session_start();
 
+$servername='localhost';
+$username='root';
+$password='';
+$dbname = "vesrepo";
+$conn=mysqli_connect($servername,$username,$password,$dbname);
+if(!$conn){
+	   die('Could not Connect My Sql:' .mysql_error());
+}
+// if (!$_SESSION['username'] ||!$_SESSION['id']||!$_SESSION['branch']||!$_SESSION['year']){
+// 	header('location:check.php');
+// }
 if (!isset($_SESSION["loggedin"])){
-	
-	header('location:check.php');
+	header("location:check.php");
 }
 $user_first=$_SESSION['username'];
 $userid= $_SESSION['id'];
 $branch= $_SESSION['branch'];
 $year= $_SESSION['year'];
+echo "$userid";
+
+
+// }
 
 ?>
 <!DOCTYPE html>
@@ -26,14 +39,7 @@ $year= $_SESSION['year'];
 </head>
 <body>
 	<?php
-	$servername='localhost';
-	$username='root';
-	$password='';
-	$dbname = "vesrepo";
-	$conn=mysqli_connect($servername,$username,$password,$dbname);
-	if(!$conn){
-		   die('Could not Connect My Sql:' .mysql_error());
-	}
+	
 	// $update_sql="UPDATE profile set account_id=1014 WHERE user_id='{$userid}'";
 	// $upd= mysqli_query($conn,$update_sql);
 	// if (mysqli_query($conn, $update_sql)) {
@@ -55,7 +61,8 @@ $year= $_SESSION['year'];
 	//include_once 'config.php';
 	if(isset($_POST['save']))
 	{	 
-		
+		echo "submitted";
+		// $_SESSION["loggedin"]=TRUE;
 		 $title = $_POST['title'];
 		 $st_date = $_POST['st_date'];
 		 $end_date = $_POST['end_date'];
@@ -583,9 +590,6 @@ $year= $_SESSION['year'];
 		<div style="clear: both;"></div>
 
 	</div>
-	<?php
-		session_destroy();
-	?>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('ul.tabs li').click(function () {

@@ -36,8 +36,11 @@
         </div>
     </form>
 
-    <?php
+    <?php session_start();
+    $_SESSION["loggedin"]=TRUE;
+
         if(isset($_POST['login'])){
+
             include "config.php";
             $email = $_POST['email'];
             $password = sha1($_POST['password']);
@@ -48,10 +51,8 @@
               
             if(mysqli_num_rows($result) > 0)
             {
-              session_start();
                 while($row = mysqli_fetch_assoc($result)){
                   
-                  $_SESSION["loggedin"]=TRUE;
                     $_SESSION["id"] = $row['user_id'];
                     $_SESSION["email"] = $row['ves_email'];
                     $_SESSION["username"]= $row['first_name'];
@@ -61,6 +62,7 @@
 
                 }
                 header("Location: profile.php");
+
 
                 //  $_SESSION["username"]= $row['first_name']
             }
