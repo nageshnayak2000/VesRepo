@@ -134,7 +134,20 @@ echo "$userid";
 		 }
 		 
 	}
-	 
+	if(isset($_POST['save_hobbies']))
+	{	 
+		
+		 $hob = $_POST['hob'];
+		 
+	$sql = "UPDATE profile SET hobbies='{$hob}' WHERE account_id='{$accountid}'" ;
+		 if (mysqli_query($conn, $sql)) {
+			echo "New record created successfully !";
+		 } else {
+			echo "Error: " . $sql . "
+	" . mysqli_error($conn);
+		 }
+		 
+	}
 	
 	$query2= "SELECT * from internships where account_id='{$accountid}'";
 	$result2= mysqli_query($conn, $query2);
@@ -146,6 +159,8 @@ echo "$userid";
 	$result5= mysqli_query($conn, $query5);
 	$query6= "SELECT * from courses where account_id='{$accountid}'";
 	$result6= mysqli_query($conn, $query6);
+	$query_hob= "SELECT hobbies from profile where account_id='{$accountid}'";
+	$result_hobbies=mysqli_query($conn, $query_hob);
 	?>
 		
 	
@@ -404,10 +419,49 @@ echo "$userid";
 						<div class="personal-info-last">
 							<h2>Hobbies</h2>
 							<div class="hobbies-list">
-								<span>Sleeping</span>
-								<span>Dancing</span>
-								<span>Velle rehna</span>
+							<?php  
+						if (mysqli_num_rows($result_hobbies)==0){
+							echo "Add Hobbies!";
+						} 
+                          while($row = mysqli_fetch_array($result_hobbies))  
+                          {  
+                          ?>  
+							<p><span></i></span><span><?php echo $row["hobbies"]; ?></span><span><span></p>
+                            
+                          <?php  
+						  }  
+						
+                          ?>  
 							</div>
+							<input type="checkbox" id="click7" style="display:none" />
+						<label for="click7">
+							<div class="button"><a class="add-button">+</a><span style="font-size:15px; text-decoration-line:underline; font-color:blue;">  Add hobbies</span></div>
+						</label>
+						<div class="modal">
+							<div class="modal__content">
+								<div class="title">
+									<h1>Add Hobbies</h1>
+								</div>
+								<form method="POST" action="profile.php" class="add-form">
+
+								<div class="certificate">
+									<div class="input-fields">
+										<input type="text" name="hob" class="input" placeholder="Tell us your hobby!">
+
+										
+										<div class="buttons">
+										<button type="submit" name="save_hobbies">Submit</button>
+											<label for="click7" class="btn">
+												<a class="button-theme">Close</a>
+											</label>
+										</div>
+									</div>
+								</div>
+						</form>
+
+							</div>
+						</div>
+						<div class="overlay"></div>
 						</div>
 
 					</div>
