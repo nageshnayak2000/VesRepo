@@ -134,6 +134,24 @@ echo "$userid";
 		 }
 		 
 	}
+	if(isset($_POST['save_work']))
+	{	 
+		
+		 $name = $_POST['name'];
+		 $date = $_POST['date'];
+		 //$desc = $_POST['desc'];
+		 $img = $_POST['img'];
+		 
+		 $sql = "INSERT INTO workshops (name,date,cert_pic, account_id)
+		 VALUES ('$name','$date','$img', '$accountid')" ;
+		 if (mysqli_query($conn, $sql)) {
+			echo "New record created successfully !";
+		 } else {
+			echo "Error: " . $sql . "
+	" . mysqli_error($conn);
+		 }
+		 
+	}
 	if(isset($_POST['save_hobbies']))
 	{	 
 		
@@ -157,7 +175,7 @@ echo "$userid";
 	$result4= mysqli_query($conn, $query4);
 	$query5= "SELECT * from courses where account_id='{$accountid}'";
 	$result5= mysqli_query($conn, $query5);
-	$query6= "SELECT * from courses where account_id='{$accountid}'";
+	$query6= "SELECT * from workshops where account_id='{$accountid}'";
 	$result6= mysqli_query($conn, $query6);
 	$query_hob= "SELECT hobbies from profile where account_id='{$accountid}'";
 	$result_hobbies=mysqli_query($conn, $query_hob);
@@ -598,11 +616,10 @@ echo "$userid";
 									<div class="input-fields">
 										<input type="text" class="input" name="name" placeholder="Name">
 
-										<input type="text" name="st_date" placeholder="Start Date" class="input" onfocus="(this.type='date')"
+										<input type="text" name="date" placeholder="Date" class="input" onfocus="(this.type='date')"
 											onblur="(this.type='text')">
 
-											<input type="text" name="end_date" placeholder="End Date" class="input" onfocus="(this.type='date')"
-											onblur="(this.type='text')">
+											
 
 										<!-- <textarea placeholder="Description"></textarea> -->
 										<div class="select-image">
