@@ -92,7 +92,7 @@
       </div>
       <div class="form sign-up">
         <button onclick="location.href='registration.php'" type="button" class="submit">Register As Student</button>
-        <button type="button" class="submit">Register As Teacher</button>
+        <button type="button" class="submit">Register As Admin</button>
       </div>
     </div>
   </div>
