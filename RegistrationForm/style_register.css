@@ -1,165 +1,219 @@
-body {
-  font-family: Montserrat, Arial, Helvetica, sans-serif;
-  background-color: #f7f7f7;
-}
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 .header h1 {
   position: relative;
   color: aliceblue;
-  top: 2px;
-  left: 600px;
-  font-size: 40px;
+  top: 0px;
+  margin-right: 45%;
+  font-size: 50px;
   font-family: Palatino, URW Palladio L, serif;
 }
 
 #navbar {
   display: flex;
-  align-items: inherit;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 5px solid orange;
   background: rgb(103, 106, 126);
   background: radial-gradient(
-    circle,
-    rgba(103, 106, 126, 1) 0%,
-    rgba(24, 72, 129, 1) 100%
+      circle,
+      rgba(103, 106, 126, 1) 0%,
+      rgba(24, 72, 129, 1) 100%
   );
 }
-
-/* #navbar::before {
-  content: "";
-  background-color: black;
-  position: absolute;
-  /* top: 0px;
-    right: 0px;
-  height: 17%;
-  width: 100%;
-  z-index: -1;
-  opacity: 1.5;
-} */
-
-#navbar ul {
-  display: flex;
-}
-
-#navbar ul li {
-  list-style: none;
-  font-size: 1.3rem;
-}
-
-#navbar ul li a {
-  display: block;
-  color: white;
-  border-radius: 20px;
-  padding: 3px 15px;
-  margin: 23px 20px;
-  text-decoration: none;
-  font-family: "Poppins", sans-serif;
-}
-
-#navbar ul li a:hover {
-  color: black;
-  background-color: white;
-}
-
+ 
 #logo img {
   margin: 5px 30px;
 }
-/* Add padding to container elements */
-.container {
-  padding: 20px;
-  width: 500px;
-  margin-top: 400px;
-  margin-left: 750px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background: white;
-  -webkit-box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
-  -moz-box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
-  box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
+
+.inner{
+    height: 90%;
+    width: 70%;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 10px 68px -6px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+    border-radius: 10px;
 }
 
-/* Full-width input fields */
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f7f7f7;
-  font-family: Montserrat, Arial, Helvetica, sans-serif;
-}
-select {
-  width: 18%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f7f7f7;
-  font-family: Montserrat, Arial, Helvetica, sans-serif;
+.photo{
+    width: 50%;
+    height: 100%;
+    padding: 0 50px;
 }
 
-input[type="phone"] {
-  width: 81%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f7f7f7;
-}
-input[type="email"] {
-  width: 81%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f7f7f7;
-}
-input[type="number"] {
-  width: 81%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f7f7f7;
-}
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="phone"]:focus,
-input[type="email"]:focus,
-select:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #0eb7f4;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-  font-size: 16px;
-  font-family: Montserrat, Arial, Helvetica, sans-serif;
-  border-radius: 10px;
-}
-
-button:hover {
-  opacity: 1;
-}
-
-/* Change styles for signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .signupbtn {
+.photo img{
     width: 100%;
+    height: 100%;
+}
+
+.user-form{
+    /* background: cornflowerblue; */
+    /* background: rgb(103, 106, 126); */
+  background: radial-gradient(
+    circle,
+    rgba(103, 106, 126, 1) 0%, rgb(63 97 138) 100% );
+    padding: 50px;
+    width: 50%;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+}
+
+.user-form h1{
+    color: #fff;
+    padding: 20px 0;
+    /* margin: 0px 10px; */
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+input{
+    width: 100%;
+    height: 3em;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 15px;
+    margin: 10px 0;
+    padding:0 30px ;
+}
+
+select{
+  /* width: 100%; */
+  height: 3em;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  font-size: 15px;
+  margin: 10px 0;
+  padding:0 20px ;
+}
+
+.options{
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-btn{
+    width: 100%;
+    display: flex;
+    margin: 30px 0;
+    justify-content: center;
+}
+
+.btn{
+    border: 1px solid #fff;
+    padding: 10px;
+    background: transparent;
+    border-radius: 20px;
+    width: 100%;
+    /* margin: 0 10px; */
+    cursor: pointer;
+    font-size: 20px;
+    /* font-weight: 600; */
+}
+
+.primary{
+    border: none;
+    background: linear-gradient(45deg, rgba(222, 197, 51, 1) 24%, rgba(255, 107, 0, 1) 100%);
+}
+
+.btn:hover{
+  background: linear-gradient(45deg, rgba(255, 107, 0, 1) 24%, rgba(222, 197, 51, 1) 100%);
+
+}
+
+
+@media (max-width: 665px){
+    .photo{
+        display: none;
+    }
+
+    .user-form{
+        width: 100%;
+        border-radius:10px ;
+    }
+
+    .user-form h1{
+      font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 990px) and (min-width: 665px){
+    .action-btn{
+        margin: 5px;
+        display: block;
+        width: 100%;
+    }
+
+    .btn{
+        width: 100%;
+        /* margin: 5px; */
+        padding: 5px;
+    }
+
+}
+
+
+@media screen and (max-width: 1393px){
+  .options{
+      flex-direction: column;
+  }
+
+  select{
+      width: 100%;
   }
 }
-#dropdown {
-  width: 150%;
+
+@media  (max-height: 740px){
+  .inner{
+    height: 110%;
+    top: 80%;
+  }
 }
+
+@media (max-height: 670px){
+  .inner{
+    height: 125%;
+    top: 90%;
+  }
+}
+
+@media (max-height: 570px){
+  .inner{
+    height: 140%;
+    top: 100%;
+  }
+}
+
+
+/* RESPONSIVE NAV */
+@media screen and (max-width: 800px){
+#navbar{
+    justify-content: flex-start;
+}
+
+.header h1{
+   font-size: 2.3rem;
+}
+
+#logo img{
+    height: 90px;
+}
+}
+
+
+
+
+
+
+
+
+ 
