@@ -49,9 +49,10 @@
       </button>
     </section>
     <section class="container3">
+      <a href="admin_login.php">
       <button data-hover="click me!">
         <div>Search Profile</div>
-      </button>
+      </button></a>
     </section>
     <div class="circular-img">
       <img src="Webp.net-resizeimage (2).png ">

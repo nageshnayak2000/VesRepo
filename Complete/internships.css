@@ -1,0 +1,220 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  
+  z-index:-1;
+  position:relative;
+}
+.header h1 {
+    position: relative;
+    color: aliceblue;
+    top: 2px;
+    font-size: 40px;
+    font-family: 'Kanit', sans-serif;
+}
+
+#navbar {
+    display: flex;
+    align-items: inherit;
+    border-bottom: 5px solid orange;
+    background: rgb(103, 106, 126);
+    background: radial-gradient(
+        circle,
+        rgba(103, 106, 126, 1) 0%,
+        rgba(24, 72, 129, 1) 100%
+    );
+}
+
+#navbar::before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    /* top: 0px;
+    right: 0px; */
+    height: 17%;
+    width: 100%;
+    z-index: -1;
+    opacity: 1.5;
+}
+
+#navbar ul {
+    display: flex;
+}
+
+#navbar ul li {
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a {
+    display: block;
+    color: white;
+    border-radius: 20px;
+    padding: 3px 15px;
+    margin: 23px 20px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+#navbar ul li a:hover {
+    color: black;
+    background-color: white;
+}
+
+#logo img {
+    margin: 5px 30px;
+}
+
+.vl {
+    border-left: 3px solid white;
+    margin-top: 20px;
+    height: 73px;
+  }
+
+section.container {
+    text-align: center;
+    margin-left: 5cm;
+    background: #a2dfef;
+}
+#header_vesrepo {
+    margin-left: 4cm;
+    margin-top: 1cm;
+    font-family: cursive;
+    line-height: 1.2cm;
+    font-family: "Oxygen", sans-serif;
+}
+h1{
+    text-align: center;
+    margin: 1.6rem;
+    font-size: 3rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.all {
+  
+}
+.cards {
+    position: absolute;
+    margin-left: 30px;
+    /* margin-right: 20px; */
+}
+
+.shadow-1:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: inherit;
+  height: inherit;
+  z-index: -2;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.13);
+}
+
+.shadow-1:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: inherit;
+  height: inherit;
+  z-index: -2;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
+}
+
+
+
+.card {
+  position: relative;
+  height: 150px;
+  width: 500px;
+  background-color: #bbf0f3;
+  background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);  margin: 20px 20px;
+  transition: 0.4s all;
+  overflow:hidden;
+ 
+}
+.card-text  {
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 30px;
+    font-size: 20px;
+    overflow: hidden;
+}
+.card-text p {
+    font-size: 15px;
+    margin-top: 10px;
+}
+.card-text .last-text p{
+  display:flex;
+  justify-content:center;
+  overflow:hidden;
+  font-size:20px;
+  text-decoration-line:underline;
+}
+.btn2 {
+  margin-left:650px;
+  height: 50px;
+  width: 100px;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: rgb(255, 0, 68);
+  box-shadow: inset 0 0 0 0 #f9e506;
+  outline: none;
+  font-size: 20px;
+  transition: ease-out 0.5s;
+  cursor: pointer;
+}
+.btn2 .text{
+  position:absolute;
+  margin-left:30px;
+}
+
+.btn2:hover {
+  box-shadow: inset 0 0 0 300px #6666FF;
+  transition: ease-out 1.5s;
+  color: #ffffff;
+}
+
+.card.open {
+  height: 200px;
+  background-color: #bbf0f3;
+  background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);}
+
+@media only screen and (min-width: 600px) {
+  .card {
+  width:1420px;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #bbf0f3;
+  background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);  
+  }
+  .card-text .last-text p{
+    margin-left:650px;
+    font-size:20px;
+    color:white;
+    background-color:#9900FF;
+  }
+}
+
+@media only screen and (max-device-width: 800px) and (orientation: portrait) {
+  .card {
+    margin: 12px 10px;
+    background-color: #bbf0f3;
+  background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);  
+  }
+}

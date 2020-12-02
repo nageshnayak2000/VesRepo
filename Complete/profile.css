@@ -409,7 +409,11 @@ ul.tabs li.current{
   text-align: center;
   margin-bottom: 20px;
 }
-
+.print button{
+      text-indent: -9999px;                 /* sends the text off-screen */
+    white-space: nowrap;            /* because only the first line is indented */
+      visibility:hidden;
+}
 
 .detail-box{
   /* padding: 10px; */

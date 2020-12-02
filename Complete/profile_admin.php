@@ -11,14 +11,17 @@ if(!$conn){
 // if (!$_SESSION['username'] ||!$_SESSION['id']||!$_SESSION['branch']||!$_SESSION['year']){
 // 	header('location:check.php');
 // }
-if (!isset($_SESSION["loggedin"])){
-	header("location:check.php");
+// if (!isset($_SESSION["loggedin"])){
+// 	header("location:check.php");
+// }
+if(isset($_SESSION["fname"])){
+    echo "From Admin";
 }
-$user_first=$_SESSION['username'];
-$userid= $_SESSION['id'];
-$branch= $_SESSION['branch'];
-$year= $_SESSION['year'];
-	// echo "$userid";
+$firstname=$_SESSION["fname"];
+$userid=$_SESSION["iduser"];
+echo $userid;
+$branch=$_SESSION["branch"];
+$year=$_SESSION["year"];
 
 
 // }
@@ -56,116 +59,8 @@ $year= $_SESSION['year'];
 	$account_result=mysqli_query($conn, $account_id);
 	foreach($account_result as $account_results){
 		foreach($account_results as $key => $accountid){
-			"$key: $accountid";
+			echo "$key: $accountid";
 		}
-	}
-	//include_once 'config.php';
-	if(isset($_POST['save']))
-	{	 
-		echo "submitted";
-		// $_SESSION["loggedin"]=TRUE;
-		 $title = $_POST['title'];
-		 $st_date = $_POST['st_date'];
-		 $end_date = $_POST['end_date'];
-		 //$desc = $_POST['desc'];
-		 $img = $_POST['img'];
-		 $role= $_POST['role'];
-		 $sql = "INSERT INTO internships (company_name,start_date, end_date,cert_pic, account_id, Role)
-		 VALUES ('$title','$st_date','$end_date','$img', '$accountid', '$role') " ;
-		 if (mysqli_query($conn, $sql)) {
-			echo "New record created successfully !";
-		 } else {
-			echo "Error: " . $sql . "
-	" . mysqli_error($conn);
-		 }
-		 
-	}
-	 if(isset($_POST['save_comp']))
-	 {	 
-		
-	 	 $title_comp = $_POST['title_comp'];
-	 	 $date = $_POST['date'];
-	 	 $desc = $_POST['desc'];
-	 	 //$desc = $_POST['desc'];
-	 	 $img = $_POST['img'];
-	 	 $sql = "INSERT INTO competitions (name,description,cert_pic,date, account_id)
-	 	 VALUES ('$title_comp','$desc','$date','$img', '$accountid')" ;
-	 	 if (mysqli_query($conn, $sql)) {
-	 		echo "New record created successfully !";
-	 	 } else {
-	 		echo "Error: " . $sql . "
-	 " . mysqli_error($conn);
-	 	 }
-		 
-	 }
-	 if(isset($_POST['save_other']))
-	 {	 
-		
-	 	 $type = $_POST['type'];
-	 	 $date = $_POST['date'];
-	 	 $desc = $_POST['desc'];
-	 	 //$desc = $_POST['desc'];
-	 	 $img = $_POST['img'];
-	 	 $sql = "INSERT INTO other (type,description,date,cert_pic, account_id)
-	 	 VALUES ('$type','$desc','$date','$img', '$accountid')" ;
-	 	 if (mysqli_query($conn, $sql)) {
-	 		echo "New record created successfully !";
-	 	 } else {
-	 		echo "Error: " . $sql . "
-	 " . mysqli_error($conn);
-	 	 }
-		 
-	 }
-	 if(isset($_POST['save_course']))
-	{	 
-		
-		 $name = $_POST['name'];
-		 $st_date = $_POST['st_date'];
-		 $end_date = $_POST['end_date'];
-		 //$desc = $_POST['desc'];
-		 $img = $_POST['img'];
-		 
-		 $sql = "INSERT INTO courses (name,start_date, end_date,cert_pic, account_id)
-		 VALUES ('$name','$st_date','$end_date','$img', '$accountid')" ;
-		 if (mysqli_query($conn, $sql)) {
-			echo "New record created successfully !";
-		 } else {
-			echo "Error: " . $sql . "
-	" . mysqli_error($conn);
-		 }
-		 
-	}
-	if(isset($_POST['save_work']))
-	{	 
-		
-		 $name = $_POST['name'];
-		 $date = $_POST['date'];
-		 //$desc = $_POST['desc'];
-		 $img = $_POST['img'];
-		 
-		 $sql = "INSERT INTO workshops (name,date,cert_pic, account_id)
-		 VALUES ('$name','$date','$img', '$accountid')" ;
-		 if (mysqli_query($conn, $sql)) {
-			echo "New record created successfully !";
-		 } else {
-			echo "Error: " . $sql . "
-	" . mysqli_error($conn);
-		 }
-		 
-	}
-	if(isset($_POST['save_hobbies']))
-	{	 
-		
-		 $hob = $_POST['hob'];
-		 
-	$sql = "UPDATE profile SET hobbies='{$hob}' WHERE account_id='{$accountid}'" ;
-		 if (mysqli_query($conn, $sql)) {
-			echo "New record created successfully !";
-		 } else {
-			echo "Error: " . $sql . "
-	" . mysqli_error($conn);
-		 }
-		 
 	}
 	
 	$query2= "SELECT * from internships where account_id='{$accountid}'";
@@ -193,9 +88,7 @@ $year= $_SESSION['year'];
       <h3>
         VesRepo
 	  </h3>     
-	  <button class="sign_btn"><a href="logout.php">Logout</a></button> 
-	  <div class="svg"><svg height="35pt" viewBox="0 -10 490.66667 490" width="35pt" xmlns="http://www.w3.org/2000/svg"><path d="m325.332031 251h-309.332031c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h309.332031c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m240 336.332031c-4.097656 0-8.191406-1.554687-11.308594-4.691406-6.25-6.25-6.25-16.382813 0-22.636719l74.027344-74.023437-74.027344-74.027344c-6.25-6.25-6.25-16.386719 0-22.636719 6.253906-6.25 16.386719-6.25 22.636719 0l85.332031 85.335938c6.25 6.25 6.25 16.382812 0 22.632812l-85.332031 85.332032c-3.136719 3.160156-7.230469 4.714843-11.328125 4.714843zm0 0"/><path d="m256 469.667969c-97.089844 0-182.804688-58.410157-218.410156-148.824219-3.242188-8.191406.808594-17.492188 9.023437-20.734375 8.191407-3.199219 17.515625.789063 20.757813 9.046875 30.742187 78.058594 104.789062 128.511719 188.628906 128.511719 111.742188 0 202.667969-90.925781 202.667969-202.667969s-90.925781-202.667969-202.667969-202.667969c-83.839844 0-157.886719 50.453125-188.628906 128.511719-3.265625 8.257812-12.566406 12.246094-20.757813 9.046875-8.214843-3.242187-12.265625-12.542969-9.023437-20.734375 35.605468-90.414062 121.320312-148.824219 218.410156-148.824219 129.386719 0 234.667969 105.28125 234.667969 234.667969s-105.28125 234.667969-234.667969 234.667969zm0 0"/></svg></div> 
-    
+	  
     </nav>
   </div>
 	<div class="profile-main" id ="pp">
@@ -249,9 +142,7 @@ $year= $_SESSION['year'];
 						</div>
 
 						<input type="checkbox" id="click1" style="display:none" />
-						<label for="click1">
-							<div class="button"><a class="add-button">+</a></div>
-						</label>
+						
 						<div class="modal">
 							<div class="modal__content">
 								<div class="title">
@@ -296,7 +187,7 @@ $year= $_SESSION['year'];
 					<div class="hover-box" id="print2">
 
 						<div class="heading">
-							<p><a href="competitions.php" >Competitions</a>
+							<p>Competitions
 								<!-- <label>10 Year Experience</label></p> -->
 						</div>
 						<div class="desc">
@@ -315,9 +206,7 @@ $year= $_SESSION['year'];
 						</div>
 						</div>
 						<input type="checkbox" id="click2" style="display:none" />
-						<label for="click2">
-							<div class="button"><a class="add-button">+</a></div>
-						</label>
+						
 						<div class="modal">
 							<div class="modal__content">
 								<div class="title">
@@ -355,7 +244,7 @@ $year= $_SESSION['year'];
 					<div class="hover-box" id="print3">
 
 						<div class="heading">
-							<p><a href="other.php" >Other</a>
+							<p>Other
 								<!-- <label>10 Year Experience</label></p> -->
 						</div>
 						<div class="desc">
@@ -374,9 +263,7 @@ $year= $_SESSION['year'];
 						</div>
 						</div>
 						<input type="checkbox" id="click3" style="display:none" />
-						<label for="click3">
-							<div class="button"><a class="add-button">+</a></div>
-						</label>
+						
 						<div class="modal">
 							<div class="modal__content">
 								<div class="title">
@@ -413,7 +300,7 @@ $year= $_SESSION['year'];
 					
 					<div class="detail-box">
 						<div class="personal-info-first">
-							<div class="name"><?php echo $user_first ?></div>
+							<div class="name"><?php echo $firstname ?></div>
 							<div class="basic-details">
 								<span>Branch : <?php echo $branch?></span>
 								<span>Year : <?php echo $year?></span>
@@ -508,7 +395,7 @@ $year= $_SESSION['year'];
 						<div class="hover-box" id="print4">
 
 							<div class="heading">
-								<p><a href="courses.php" >Courses</a>
+								<p>Courses
 									<!-- <label>10 Year Experience</label></p> -->
 							</div>
 							<div class="desc">
@@ -536,9 +423,7 @@ $year= $_SESSION['year'];
 								<a href="#open-modal"><i class="fas fa-plus-circle fa-2x"></i></a>
 							</div> -->
 							<input type="checkbox" id="click4" style="display:none" />
-						<label for="click4">
-							<div class="button"><a class="add-button">+</a></div>
-						</label>
+						
 							<div class="modal">
 							<div class="modal__content">
 								<div class="title">
@@ -581,7 +466,7 @@ $year= $_SESSION['year'];
 
 							<div class="heading">
 
-								<p><a href="workshops.php" >Workshops</a>
+								<p>Workshops
 									<!-- <label>10 Year Experience</label></p> -->
 							</div>
 							<div class="desc">
@@ -603,9 +488,7 @@ $year= $_SESSION['year'];
 								<a href="#open-modal"><i class="fas fa-plus-circle fa-2x"></i></a>
 							</div> -->
 							<input type="checkbox" id="click6" style="display:none" />
-						<label for="click6">
-							<div class="button"><a class="add-button">+</a></div>
-						</label>
+						
 							<div class="modal">
 							<div class="modal__content">
 								<div class="title">
