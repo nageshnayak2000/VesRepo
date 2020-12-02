@@ -39,7 +39,7 @@ require_once('config.php');
                 <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
 
                 <!-- <label for="email"><b>Ves Email</b><label> -->
-                <input type="email" id="email" name="email" placeholder="Ves Email" required>
+                <input type="email" id="email" name="email" pattern="^[A-Za-z0-9]+(.|_)+[A-Za-z0-9]+@+ves.ac.in$" placeholder="Ves Email" required>
 
                 <!-- <label for="phonenumber"><b>Phone Number</b><label> -->
                 <input type="phone" id="phonenumber" name="phonenumber" placeholder="Phone Number" pattern="[1-9]{1}[0-9]{9}" required>

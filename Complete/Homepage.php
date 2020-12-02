@@ -63,24 +63,22 @@
     <div class="footer">
       <div class="box">
         <h2>About us</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam soluta nesciunt, enim praesentium animi
-          ab odit, similique vitae adipisci officia, vel consequatur accusantium?</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda vitae nisi iure provident fuga, omnis
-          odit dolorem repellat cum ducimus, quis architecto perspiciatis id.</p>
+        <p>Vivekanand Education Society’s Institute of Technology (VESIT) was established in 1984, with the aim of providing professional education in the field of Engineering.</p>
+        <p>This institute is affiliated to the University of Mumbai and follows the rules and regulations laid down by government, AICTE, and University for admission.</p>
         <div class="social">
-          <a href="#">
+          <a href="https://www.facebook.com/vesitedu/" target="_blank">
             <i class="fab fa-facebook"></i>
           </a>
-          <a href="#">
+          <!-- <a href="#">
             <i class="fab fa-twitter"></i>
           </a>
           <a href="#">
             <i class="fab fa-instagram"></i>
-          </a>
-          <a href="#">
+          </a> -->
+          <a href="https://www.linkedin.com/in/vesit/?originalSubdomain=in" target="_blank">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="#">
+          <a href="https://www.youtube.com/channel/UCSztaAQdtzmlb05IedHf9Vg/featured" target="_blank">
             <i class="fab fa-youtube"></i>
           </a>
         </div>
@@ -88,17 +86,17 @@
       <div class="box">
         <h2>Address</h2>
         <div class="address">
-          <a href="#">
+          <a href="https://goo.gl/maps/2dVRjRzv7ujpS3kh9" target="_blank">
             <i class="fas fa-map-marker-alt"></i>
-            123B Viet Nam
+            Hashu Advani Memorial Complex, Collector’s Colony, Chembur, Mumbai – 400 074. India.
           </a>
-          <a href="#">
+          <a href="https://api.whatsapp.com/send/?phone=919819186523&text&app_absent=0" target="_blank">
             <i class="fas fa-phone-square-alt"></i>
-            +84-23432123
+            +919819186523
           </a>
-          <a href="#">
+          <a href="mailto:wiremeshindia@gmail.com">
             <i class="fas fa-envelope"></i>
-            abc@gmail.com
+            vesit@ves.ac.in
           </a>
         </div>
       </div>
