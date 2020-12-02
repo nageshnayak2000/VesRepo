@@ -29,41 +29,6 @@ body {
     );
 }
 
-#navbar::before {
-    content: "";
-    /* background-color: black; */
-    position: absolute;
-    /* top: 0px;
-    right: 0px; */
-    height: 17%;
-    width: 100%;
-    z-index: -1;
-    opacity: 1.5;
-}
-
-#navbar ul {
-    display: flex;
-}
-
-#navbar ul li {
-    list-style: none;
-    font-size: 1.3rem;
-}
-
-#navbar ul li a {
-    display: block;
-    color: white;
-    border-radius: 20px;
-    padding: 3px 15px;
-    margin: 23px 20px;
-    text-decoration: none;
-    font-family: "Poppins", sans-serif;
-}
-
-#navbar ul li a:hover {
-    color: black;
-    background-color: white;
-}
 
 #logo {
     margin: 5px 0px;
@@ -119,10 +84,6 @@ section.container2 {
     section.container3 {
         margin-top: 1.5cm;
         margin-left: 4cm;
-}
-
-a:hover {
-    border-bottom: 1px solid black;
 }
 
 button:hover {
@@ -311,4 +272,8 @@ button div {
         left: 10%;
         top: 1%;
     }
+}
+
+.container{
+    margin-bottom: 13%;
 }
