@@ -639,22 +639,123 @@ $year= $_SESSION['year'];
 						</div>
 						</div>
 						<div class="overlay"></div>
-					</div>
-				
+						</div>
+
+						</div>
+						</div>
+
+
+
+						<div class="divider"></div>
+
 				<div id="Portfolio" class="tab-content">
-					<div class="portfolio-box">
-						
+					<div class="portfolio-box" id="port">
+						<div id="header">
+					<div class="left"></div>
+							<div class="stuff">
+							<br><br>
+							<h1>My Resume</h1>
+							<h2><?php echo "$user_first" ?></h2>
+							<h3>Branch, <?php echo "$branch" ?></h3>
+							<hr />
+							<br>
+							<p class="head">Internships</p>
+							
+							<?php  
+						$query2= "SELECT * from internships where account_id='{$accountid}'";
+						$result2= mysqli_query($conn, $query2);
+						$query3= "SELECT * from competitions where account_id='{$accountid}'";
+						$result3= mysqli_query($conn, $query3);
+						$query4= "SELECT * from other where account_id='{$accountid}'";
+						$result4= mysqli_query($conn, $query4);
+						$query5= "SELECT * from courses where account_id='{$accountid}'";
+						$result5= mysqli_query($conn, $query5);
+						$query6= "SELECT * from workshops where account_id='{$accountid}'";
+						$result6= mysqli_query($conn, $query6);
+						if (mysqli_num_rows($result2)==0){
+							echo "No Internships added Yet!";
+						}
+                          while($row = mysqli_fetch_array($result2))  
+                          {  
+						  ?>  
+						  <ul>
+						  <li><?php echo $row["Role"]; ?></span><span><span>,</span><?php echo $row["company_name"]; ?></li>
+						  </ul>
+                          <?php  
+                          }  
+                          ?>  
+							
+							<p class="head">Competitions</p>
+							<?php
+							if (mysqli_num_rows($result3)==0){
+							echo "No Competitions added Yet!";
+						}
+                          while($row = mysqli_fetch_array($result3))  
+                          {  
+						  ?>  
+						  <ul>
+						  <li><?php echo $row["name"]; ?></li>
+						  </ul>
+                          <?php  
+                          }  
+                          ?>  
+							<p class="head">Courses </p>
+							<?php
+							if (mysqli_num_rows($result5)==0){
+							echo "No Competitions added Yet!";
+						}
+                          while($row = mysqli_fetch_array($result5))  
+                          {  
+						  ?>  
+						  <ul>
+						  <li><?php echo $row["name"]; ?></li>
+						  </ul>
+                          <?php  
+                          }  
+                          ?>  
+							<p class="head">Workshops attended</p>
+							<?php
+							if (mysqli_num_rows($result6)==0){
+							echo "No Competitions added Yet!";
+						}
+                          while($row = mysqli_fetch_array($result6))  
+                          {  
+						  ?>  
+						  <ul>
+						  <li><?php echo $row["name"]; ?></li>
+						  </ul>
+                          <?php  
+                          }  
+                          ?>  
+							<p class="head">Extracurriculars</p>
+							<?php
+							if (mysqli_num_rows($result4)==0){
+							echo "No Competitions added Yet!";
+						}
+                          while($row = mysqli_fetch_array($result4))  
+                          {  
+						  ?>  
+						  <ul>
+						  <li><?php echo $row["type"]; ?></li>
+						  </ul>
+                          <?php  
+                          }  
+                          ?>  
+							</div>
+						</div>
+<div class="right"></div>
+<div id="footer">
+  </div>
 					<div class="resume"> 
-					<a href="#" onclick="return xepOnline.Formatter.Format(['print','print2','print3','print4','print5'],{render:'download',foStyle:[{background:'white'}]});">
-					<button>Print</button>
+					<a href="#" onclick="return xepOnline.Formatter.Format('header',{render:'download',foStyle:[{background:'white'}]});">
+					<button class= "button-two" data-hover="click me!"> <div>Print</div></button>
 					</a>
 				</div> 	
-					</div>
 					
 				</div>
 			</div>
-		</div>
 		<div style="clear: both;"></div>
+		</div>
 
 	</div>
 	  

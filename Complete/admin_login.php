@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="admin_login.css">
+    <!-- <link rel="stylesheet" href="footer.css"> -->
+
 
     <title>Admin Login</title>
 </head>
@@ -11,11 +13,12 @@
 <div class="header">
     <nav id="navbar">
       <div id="logo">
-          <img src="Logo.png" alt="VESIT">
+        <img src="Logo.png" alt="VESIT">
       </div>
-      <h3>
+      <h1>
         VesRepo
-      </h3>     
+      </h1>
+      <button onclick="location.href='Homepage.php.php'" class="sign_btn btn1">Back</button>     
     </nav>
   </div>
 <form class="box" action="admin_login.php" method="post">
@@ -61,5 +64,6 @@
         }
 
     ?>
+    
 </body>
 </html>

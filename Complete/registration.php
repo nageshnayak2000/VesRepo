@@ -88,6 +88,7 @@ require_once('config.php');
             </form>
         </div>
     </div>
+    
 
 
 
@@ -121,7 +122,10 @@ require_once('config.php');
                                 'text': data,
                                 'type': 'success',
                                 'icon': 'success'
-                            })
+                            }).then(function() {
+                                window.location = "Homepage.php";
+                            });
+                            
                         },
                         error: function (data) {
                             Swal.fire({
