@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="Homepage.css">
   <link rel="stylesheet" href="footer.css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
 </head>
@@ -15,13 +16,16 @@
 <body>
   <div class="header">
     <nav id="navbar">
-      <div id="logo">
-        <img src="Logo.png" alt="VESIT">
+      <div class="left-side">
+        <div id="logo">
+          <img src="Logo.png" alt="VESIT">
+        </div>
+        <div class="vl"></div>
+        <h1>
+          VesRepo
+        </h1>
       </div>
-      <h1>
-        VesRepo
-      </h1>
-      <button onclick="location.href='login.php'" class="sign_btn btn1">Sign in</button>
+      <button onclick="location.href='login.php'" class="sign_btn">Sign in</button>
       <div class="svg" onclick="location.href='login.php'"><svg height="35pt" viewBox="0 -10 490.66667 490" width="35pt"
           xmlns="http://www.w3.org/2000/svg">
           <path
@@ -49,10 +53,9 @@
       </button>
     </section>
     <section class="container3">
-      <a href="admin_login.php">
       <button data-hover="click me!">
         <div>Search Profile</div>
-      </button></a>
+      </button>
     </section>
     <div class="circular-img">
       <img src="Webp.net-resizeimage (2).png ">
@@ -60,12 +63,14 @@
   </div>
 
   <footer>
-    <div class="footer">
-      <div class="box">
-        <h2>About us</h2>
-        <p>Vivekanand Education Society’s Institute of Technology (VESIT) was established in 1984, with the aim of providing professional education in the field of Engineering.</p>
-        <p>This institute is affiliated to the University of Mumbai and follows the rules and regulations laid down by government, AICTE, and University for admission.</p>
-        <div class="social">
+        <div class="footer">
+          <div class="box">
+            <h2>About us</h2>
+            <p>Vivekanand Education Society’s Institute of Technology (VESIT) was established in 1984, with the aim of providing professional education in the field of Engineering.</p>
+
+            <p>This institute is affiliated to the University of Mumbai and follows the rules and regulations laid down by government, AICTE, and University for admission.</p>
+
+            <div class="social">
           <a href="https://www.facebook.com/vesitedu/" target="_blank">
             <i class="fab fa-facebook"></i>
           </a>
@@ -82,8 +87,8 @@
             <i class="fab fa-youtube"></i>
           </a>
         </div>
-      </div>
-      <div class="box">
+          </div>
+          <div class="box">
         <h2>Address</h2>
         <div class="address">
           <a href="https://goo.gl/maps/2dVRjRzv7ujpS3kh9" target="_blank">
@@ -100,22 +105,22 @@
           </a>
         </div>
       </div>
-      <div class="box">
-        <h2>Contact us</h2>
-        <form action="#">
-          <label for="mail">Email <span>*</span></label>
-          <input type="email" name="mail" id="mail" required>
-          <label for="mess">Message <span>*</span></label>
-          <textarea name="mess" id="mess" rows="3" required></textarea>
-          <button type="submit" class="footer-btn">Send</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="author">
-      <p><span>VESIT</span> copyright &copy; 2020</p>
-    </div>
-  </footer>
+          <div class="box">
+            <h2>Contact us</h2>
+            <form action="#">
+              <label for="mail">Email <span>*</span></label>
+              <input type="email" name="mail" id="mail" required>
+              <label for="mess">Message <span>*</span></label>
+              <textarea name="mess" id="mess" rows="3" required></textarea>
+              <button type="submit" class="footer-btn">Send</button>
+            </form>
+          </div>
+        </div>
+    
+        <div class="author">
+          <p><span>VESIT</span> copyright &copy; 2020</p>
+        </div>
+      </footer>
 </body>
 
 </html>

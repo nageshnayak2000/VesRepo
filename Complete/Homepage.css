@@ -7,13 +7,23 @@ body {
     overflow-x: hidden;
 }
 
+.vl {
+    border-left: 3px solid white;
+    margin: 0px 20px;
+    margin-top: 20px;
+    height: 73px;
+  }
+
 .header h1 {
     position: relative;
     color: aliceblue;
-    top: 2px;
-    margin-left: 5%;
+    top: -5px;
     font-size: 40px;
-    font-family: Palatino, URW Palladio L, serif;
+    font-family: 'Kanit', sans-serif;
+}
+
+.left-side{
+    display: flex;
 }
 
 #navbar {
@@ -32,7 +42,7 @@ body {
 
 #logo {
     margin: 5px 0px;
-    margin-left: 1%;
+    margin-left: 2%;
 }
 
 .sign_btn {
@@ -47,20 +57,7 @@ body {
     position: relative;
     overflow: hidden;
 }
-.sign_btn::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    z-index: -1;
-    transition: 0.8s;
-    bottom: 0;
-    border-radius: 50% 50% 0 0;
-}
-.sign_btn:hover::before {
-    height: 180%;
-}
+
 /* section.container {
     text-align: center;
     margin-left: 1cm;
@@ -86,11 +83,6 @@ section.container2 {
         margin-left: 4cm;
 }
 
-button:hover {
-    cursor: pointer;
-    color: black;
-    background-color: orange;
-}
 button {
     background: transparent;
     outline: none;
@@ -101,6 +93,13 @@ button {
     border-radius: 25px;
     width: 260px;
 }
+
+button:hover {
+    cursor: pointer;
+    color: black;
+    background-color: orange;
+}
+
 
 /*button:before (attr data-hover)*/
 button:hover:before {
@@ -140,6 +139,10 @@ button div {
 .svg{
     display: none;
     fill: orange;
+}
+
+.container{
+    margin-bottom: 13%;
 }
 
 .circular-img {
@@ -239,41 +242,35 @@ button div {
     }
 }
 
-@media screen and (max-width: 800px){
-    .sign_btn{
+@media screen and (max-width: 550px){
+     .sign_btn{
         display: none;
     }
     .svg{
         position: absolute;
         display: block;
         right: 2%;
-        top: 4%;
+        top: 6%;
     }
 
-    #navbar{
-        justify-content: flex-start;
+
+}
+
+@media screen and (max-width: 400px){
+    .vl{
+        display: none;
     }
 
     .header h1{
-        position: absolute;
-        left: 6%;
-        top: 1%;
-       font-size: 2rem;
+        top: 2px;
+        font-size: 37px;
+        margin-left: 5%;
     }
 
     #logo img{
-        height: 90px;
+        margin-top: 6px;
+        margin-left: 2%;
+        height: 95px;
     }
 }
 
-@media screen and (max-width: 460px){
-    .header h1{
-        position: absolute;
-        left: 10%;
-        top: 1%;
-    }
-}
-
-.container{
-    margin-bottom: 13%;
-}
