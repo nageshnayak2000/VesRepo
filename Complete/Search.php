@@ -1,4 +1,4 @@
-<?php session_start();
+<?php  session_start();
 $servername='localhost';
 $username='root';
 $password='';
@@ -210,15 +210,10 @@ error_reporting(E_ERROR | E_PARSE);
                 
                 <p><?php echo $row['branch']; ?></p>
             </div>
-            <?php 
-           $_SESSION["fname"]=$row['first_name'];
-           $_SESSION["iduser"]=$row['user_id'];
-           $_SESSION["branch"]=$row['branch'];
-           $_SESSION["year"]=$row['year'];
-           
-            ?>
+            
             <div class="table-cell">
                 <a href="profile_admin.php"><p>View Profile</p></a>
+
             </div>
             <div class="table-cell">
             <p><?php echo $row['year']; ?></p>
@@ -299,7 +294,7 @@ if(mysqli_num_rows($res_ws)>0){
             <div class="table-cell">
                 <p><?php echo $row['branch']; ?></p>
             </div>
-            <?php 
+            <?php
            $_SESSION["fname"]=$row['first_name'];
            $_SESSION["iduser"]=$row['user_id'];
            $_SESSION["branch"]=$row['branch'];

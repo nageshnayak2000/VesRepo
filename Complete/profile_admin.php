@@ -15,11 +15,11 @@ if(!$conn){
 // 	header("location:check.php");
 // }
 if(isset($_SESSION["fname"])){
-    echo "From Admin";
+    // echo "From Admin";
 }
 $firstname=$_SESSION["fname"];
 $userid=$_SESSION["iduser"];
-echo $userid;
+// echo $userid;
 $branch=$_SESSION["branch"];
 $year=$_SESSION["year"];
 
@@ -59,7 +59,7 @@ $year=$_SESSION["year"];
 	$account_result=mysqli_query($conn, $account_id);
 	foreach($account_result as $account_results){
 		foreach($account_results as $key => $accountid){
-			echo "$key: $accountid";
+			"$key: $accountid";
 		}
 	}
 	
@@ -88,7 +88,8 @@ $year=$_SESSION["year"];
       <h3>
         VesRepo
 	  </h3>     
-	  
+	  <button onclick="location.href='Search.php'" class="sign_btn btn1">Back</button>
+
     </nav>
   </div>
 	<div class="profile-main" id ="pp">
@@ -121,7 +122,7 @@ $year=$_SESSION["year"];
 					<div class="bio-box" >
 						<div class="hover-box" id="print">
 						<div class="heading" id="title">
-							<p ><a href="internships.php" >Internships</a>
+							<p >Internships</p>
 								<!-- <label>10 Year Experience</label></p> -->
 						</div>
 						<div class="desc" >
