@@ -7,10 +7,10 @@ footer{
     width: 100%;
     background: rgb(25 54 88);
     color: rgb(206, 203, 203);
+    font-family: "Poppins", sans-serif;
 }
 
 .footer{
-    font-family: "Poppins", sans-serif;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -81,7 +81,7 @@ form textarea{
 }
 
 
-span{
+footer span{
     color: orange;
 }
 
