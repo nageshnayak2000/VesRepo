@@ -88,7 +88,7 @@ $year=$_SESSION["year"];
       <h3>
         VesRepo
 	  </h3>     
-	  <button onclick="location.href='Search.php'" class="sign_btn btn1">Back</button>
+	  <button onclick="location.href='admincheck.php'" class="sign_btn btn1">Back</button>
 
     </nav>
   </div>

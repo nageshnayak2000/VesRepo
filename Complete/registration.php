@@ -21,6 +21,8 @@ require_once('config.php');
             <h1>
                 VesRepo
             </h1>
+            <button onclick="location.href='Homepage.php'" class="sign_btn btn1">Back</button>     
+
         </nav>
     </div>
 

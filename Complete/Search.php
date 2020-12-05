@@ -224,6 +224,13 @@ error_reporting(E_ERROR | E_PARSE);
 
                 <p class="table-cell-sec"><?php echo $row['branch']; ?></p>
             </div>
+            <?php 
+           $_SESSION["fname"]=$row['first_name'];
+           $_SESSION["iduser"]=$row['user_id'];
+           $_SESSION["branch"]=$row['branch'];
+           $_SESSION["year"]=$row['year'];
+           
+            ?>
 
             <div data-label="Profile" class="table-cell">
                 <a href="profile_admin.php">

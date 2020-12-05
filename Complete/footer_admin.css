@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  box-sizing: border-box;
+}
+
+footer{
+    width: 100%;
+    background: rgb(25 54 88);
+    color: rgb(206, 203, 203);
+     /* position: fixed; 
+    top: 500px; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer{
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box-foot{
+    flex: 1;
+    margin: 5px 15px;
+    min-width: 300px;
+}
+
+.box-foot h2{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 3px solid rgb(150, 148, 148);
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.box-foot h2::before{
+    content: "";
+    width: 100px;
+    height: 100%;
+    border-bottom: 3px solid orange;
+    position: absolute;
+}
+
+.box-foot a{
+    color: rgb(206, 203, 203);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.box-foot a i{
+    background: #333;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 5px;
+    transition: 0.3s linear;
+}
+
+.box-foot a:hover,
+.box-foot a:hover i{
+    color: orange;
+    border-radius: 50%;
+}
+
+.social{
+    margin-top: 5px;
+}
+
+.address a{
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.form-foot input,
+.form-foot textarea{
+    width: 100%;
+    min-height: 30px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+
+span{
+    color: orange;
+}
+
+.footer-btn{
+    width: 50%;
+    height: 48px;
+    border: none;
+    outline: none;
+    background: orange;
+    border-radius: 5px;
+    font-size: 1.3em;
+    /* padding-bottom: 10px; */
+    cursor: pointer;
+}
+
+.footer-btn:hover{
+    background:rgb(218, 142, 2)
+}
+
+.author{
+    width: 100%;
+    background: rgb(19, 19, 32);
+    text-align: center;
+    /* padding: 15px 0; */
+    height: 2.5em;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+}

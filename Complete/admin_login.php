@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="admin_login.css">
+
     <!-- <link rel="stylesheet" href="footer.css"> -->
 
 
@@ -18,7 +19,7 @@
       <h1>
         VesRepo
       </h1>
-      <button onclick="location.href='Homepage.php.php'" class="sign_btn btn1">Back</button>     
+      <button onclick="location.href='Homepage.php'" class="sign_btn btn1">Back</button>     
     </nav>
   </div>
 <form class="box" action="admin_login.php" method="post">
@@ -27,7 +28,9 @@
         <input type="password" name="password" placeholder="Password">
         <input type="submit" name="login" value="Login">
     </form>
-
+    <div class="circular-img">
+      <img src="design.jpg ">
+    </div>
         <?php session_start();
             $_SESSION["loggedin"]=TRUE;
 
@@ -64,6 +67,7 @@
         }
 
     ?>
+    
     
 </body>
 </html>

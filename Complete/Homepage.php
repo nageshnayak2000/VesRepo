@@ -53,7 +53,7 @@
       </button>
     </section>
     <section class="container3">
-      <button data-hover="click me!">
+      <button onclick="location.href='admin_login.php'" data-hover="click me!">
         <div>Search Profile</div>
       </button>
     </section>
