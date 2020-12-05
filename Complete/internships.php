@@ -63,7 +63,7 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
     <div class="header">
         <nav id="navbar">
           <div id="logo">
-              <img src="/Images/Logo.png" alt="VESIT">
+              <img src="Logo.png" alt="VESIT">
           </div>
           <div class="vl"></div>
           <h1>
