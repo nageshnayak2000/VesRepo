@@ -219,7 +219,7 @@ $year= $_SESSION['year'];
 			<div class="profile-header">
 				<div class="user-detail">
 					<div class="user-image">
-						<img src="http://nicesnippets.com/demo/up-profile.jpg">
+						<img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png">
 					</div>
 
 
