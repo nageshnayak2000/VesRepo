@@ -95,6 +95,7 @@ footer span{
     font-size: 1.3em;
     /* padding-bottom: 10px; */
     cursor: pointer;
+    margin: 0;
 }
 
 .footer-btn:hover{
