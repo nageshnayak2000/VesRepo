@@ -192,6 +192,10 @@ button div {
   .circular-img img{
       width: 600px;
   }
+  .box {
+    left: 50%;
+    right: 50%;
+  }
 
   .circular-img{
       top: 39%;
@@ -235,6 +239,10 @@ button div {
   .circular-img{
       display: none;
   }
+  .box{
+    left: 50%;
+    right: 50%;
+  }
   section.container1 {
       margin-top: 1cm;
       margin-left: 0cm;
@@ -266,6 +274,10 @@ button div {
   }
   #header_vesrepo{
       font-size: 1.8rem;
+  } 
+  .box{
+    left: 50%;
+    right: 50%;
   }
 }
 

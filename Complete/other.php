@@ -19,7 +19,7 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
 			"$key: $accountid";
 		}
   }
-  // echo "$accountid";
+  //  echo "$accountid";
 
 ?>
 
@@ -39,7 +39,7 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
   $query1="SELECT type, description, date, cert_pic from other where account_id='{$accountid}'";
   $result=mysqli_query($conn, $query1);
 
-  if(isset($_POST['save_other']))
+  if(isset($_POST['upd_other']))
 	 {	 
 		
 	 	 $type = $_POST['type'];
@@ -47,10 +47,9 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
 	 	 $desc = $_POST['desc'];
 	 	 //$desc = $_POST['desc'];
 	 	 $img = $_POST['img'];
-	 	 $sql = "INSERT INTO other (type,description,date,cert_pic, account_id)
-	 	 VALUES ('$type','$desc','$date','$img', '$accountid')" ;
+	 	 $sql = "UPDATE other SET type='$type',description='$desc',date='$date',cert_pic='$img' WHERE account_id='$accountid'";
 	 	 if (mysqli_query($conn, $sql)) {
-	 		echo "New record created successfully !";
+	 	
 	 	 } else {
 	 		echo "Error: " . $sql . "
 	 " . mysqli_error($conn);
@@ -66,7 +65,9 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
           <div class="vl"></div>
           <h1>
             VesRepo
-          </h1>       
+          </h1>  
+          <button onclick="location.href='profile.php'" class="sign_btn btn1">Back</button>     
+     
         </nav>
       </div>
       <h1>Other</h1>
@@ -81,7 +82,7 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
               <div class="card shadow-1">
               <div class="card-text">
               <h4><span><i class="fa fa-check-circle" aria-hidden="true"></i><?php echo $row["type"]; ?></span></h4>
-              <p><span>Post:  </span><span> <?php echo $row["desription"] ?></span></p>
+              <p><span>Description:  </span><span> <?php echo $row["description"] ?></span></p>
               <p><span>On:  </span><span> <?php echo $row["date"] ?></span><p><span>Show Certificate  </span><span> <?php echo $row["cert_pic"] ?></span></p>
               <p></p>
               <input type="checkbox" id="click3" style="display:none" />
@@ -110,7 +111,7 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
 											<input type="file" id="img" name="img" accept="image/*">
 										</div>
 										<div class="buttons">
-										<button type="submit" name="save_other">Submit</button>
+										<button type="submit" name="upd_other">Submit</button>
 											<label for="click3" class="btn">
 												<a class="button-theme">Close</a>
 											</label>

@@ -41,7 +41,7 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
 
   if(isset($_POST['save']))
 	{	 
-    echo "submitted";
+    // echo "submitted";
 		// $_SESSION["loggedin"]=TRUE;
 		 $title = $_POST['title'];
 		 $st_date = $_POST['st_date'];
@@ -49,9 +49,9 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
 		 //$desc = $_POST['desc'];
 		 $img = $_POST['img'];
 		 $role= $_POST['role'];
-		 $sql = "UPDATE internships SET company_name='{$title}',start_date='{$st_date}', end_date='{$end_date}',cert_pic='{$img}', Role='{$role}')  WHERE comapny_name='{$title}'";
+		 $sql = "UPDATE internships SET company_name='{$title}',start_date='{$st_date}', end_date='{$end_date}',cert_pic='{$img}', Role='{$role}'  WHERE company_name='{$title}'";
 		 if (mysqli_query($conn, $sql)) {
-			echo "New record created successfully !";
+			// echo "New record created successfully !";
 		 } else {
 			echo "Error: " . $sql . "
 	" . mysqli_error($conn);
@@ -68,7 +68,9 @@ $account_id= "SELECT account_id from profile where profile.user_id='{$userid}'";
           <div class="vl"></div>
           <h1>
             VesRepo
-          </h1>       
+          </h1>     
+          <button onclick="location.href='profile.php'" class="sign_btn btn1">Back</button>     
+  
         </nav>
       </div>
       <h1>Internships</h1>
