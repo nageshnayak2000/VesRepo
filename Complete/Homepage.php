@@ -100,7 +100,7 @@
             <i class="fas fa-phone-square-alt"></i>
             +919819186523
           </a>
-          <a href="mailto:wiremeshindia@gmail.com">
+          <a href="mailto:vesit@ves.ac.in">
             <i class="fas fa-envelope"></i>
             vesit@ves.ac.in
           </a>
