@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VesRepo</title>
+  <script type="text/javascript" src="test.js"></script>
   <link rel="stylesheet" href="Homepage.css">
   <link rel="stylesheet" href="footer.css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -110,9 +111,9 @@
             <form action="#">
               <label for="mail">Email <span>*</span></label>
               <input type="email" name="mail" id="mail" required>
-              <label for="mess">Message <span>*</span></label>
-              <textarea name="mess" id="mess" rows="3" required></textarea>
-              <button type="submit" class="footer-btn">Send</button>
+              <label for="message">Message <span>*</span></label>
+              <textarea name="message" id="message" rows="3" required></textarea>
+              <button type="submit" id="send" onclick="send()" class="footer-btn">Send</button>
             </form>
           </div>
         </div>
