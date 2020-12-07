@@ -28,8 +28,8 @@ require_once('config.php');
           VesRepo
         </h1>
       </div>
-      <button onclick="location.href='Homepage.php'" class="sign_btn">Back</button>
-      <div class="svg" onclick="location.href='Homepage.php'"><svg height="35pt" viewBox="0 -10 490.66667 490"
+      <button onclick="location.href='index.php'" class="sign_btn">Back</button>
+      <div class="svg" onclick="location.href='index.php'"><svg height="35pt" viewBox="0 -10 490.66667 490"
                     width="35pt" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="m474.667969 251h-309.335938c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h309.335938c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
@@ -140,7 +140,7 @@ require_once('config.php');
                                 'type': 'success',
                                 'icon': 'success'
                             }).then(function() {
-                                window.location = "Homepage.php";
+                                window.location = "index.php";
                             });
                             
                         },

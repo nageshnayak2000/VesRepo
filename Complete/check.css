@@ -1,0 +1,251 @@
+	
+			@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+			body{
+				font-family: 'Roboto';
+				text-align: center;
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+            }
+            .header h3 {
+                position: relative;
+                color: aliceblue;
+                top: 2px;
+                margin-left: 5%;
+                font-size: 40px;
+                font-family: Palatino, URW Palladio L, serif;
+              }
+              
+              #navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: inherit;
+                border-bottom: 5px solid orange;
+                background: rgb(103, 106, 126);
+                background: radial-gradient(
+                    circle,
+                    rgba(103, 106, 126, 1) 0%,
+                    rgba(24, 72, 129, 1) 100%
+                );
+              }
+              
+              
+              #logo {
+                margin: 5px 0px;
+                margin-left: 1%;
+              }
+              
+              .sign_btn {
+                height: 50px;
+                width: 160px;
+                font-size: 18px;
+                color: white;
+                border-radius: 12px;
+                margin-top: 1cm;
+                margin-right: 1%;
+                transition: 0.8s;
+                position: relative;
+                overflow: hidden;
+              }
+              .sign_btn::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 0%;
+                z-index: -1;
+                transition: 0.8s;
+                bottom: 0;
+                border-radius: 50% 50% 0 0;
+              }
+              .sign_btn:hover::before {
+                height: 180%;
+              }
+              button {
+                background: transparent;
+                outline: none;
+                position: relative;
+                border: 2px solid orange;
+                padding: 15px 50px;
+                overflow: hidden;
+                border-radius: 25px;
+                width: 260px;
+              }
+              
+              button:hover {
+                cursor: pointer;
+                color: black;
+                background-color: orange;
+              }
+              
+              
+              /*button:before (attr data-hover)*/
+              button:hover:before {
+                opacity: 1;
+                transform: translate(0, 0);
+              }
+              button:before {
+                content: attr(data-hover);
+                position: absolute;
+                top: 1.2em;
+                left: 0;
+                width: 100%;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-weight: 800;
+                font-size: 1em;
+                opacity: 0;
+                transform: translate(-100%, 0);
+                transition: all 0.3s ease-in-out;
+              }
+              /*button div (button text before hover)*/
+              button:hover div {
+                opacity: 0;
+                transform: translate(100%, 0);
+              }
+              button div {
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-weight: 800;
+                font-size: 1em;
+                transition: all 0.3s ease-in-out;
+                color: black;
+                /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
+                font-family: "Poppins", sans-serif;
+              }
+			#main{
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+			    -webkit-box-orient: horizontal;
+			    -webkit-box-direction: normal;
+			        -ms-flex-direction: row;
+			            flex-direction: row;
+			    -ms-flex-wrap: wrap;
+			        flex-wrap: wrap;
+			    -webkit-box-pack: center;
+			        -ms-flex-pack: center;
+			            justify-content: center;
+			    -webkit-box-align: center;
+			        -ms-flex-align: center;
+			            align-items: center;				
+			}
+
+			#hello{
+				float: left;
+				position: relative;
+        top: 10em;
+			}
+			h2{
+				position: absolute;
+				margin: 0;
+				padding: 0;
+				left: 0;
+			    right: 0;
+			    top: 48%;
+				float: left;
+				letter-spacing: 0.3em;
+			}
+
+			h1{
+				margin: 0;
+				padding: 0;
+				float: left;
+				letter-spacing: 0.3em;
+				position: relative;
+			}
+			@-webkit-keyframes animate-con {
+  				0%{opacity:0;}
+  				33.3%{opacity: 0;}
+  				100%{margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;}
+			  }
+			
+			 #con
+			{
+			    -webkit-animation-name:             animate-con;
+			    -webkit-animation-duration:         5.5s; 
+			    -webkit-animation-iteration-count:  1;
+			    -webkit-animation-timing-function: ease-out;
+			    }
+
+			@-webkit-keyframes animate-one {
+  				0%{opacity:0;margin-right: 1500px;margin-bottom: 1000px;}
+  				70%{opacity: 0;}
+  				100%{margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;}
+			  }
+			
+			 #one
+			{
+			    -webkit-animation-name:             animate-one; 
+			    -webkit-animation-duration:         1.5s; 
+			    -webkit-animation-iteration-count:  1;
+			    -webkit-animation-timing-function: ease-out;
+			    }
+
+
+			@-webkit-keyframes animate-two {
+		  		0%{opacity:0;margin-top: 1050px; margin-left: 100px;}
+		  		70%{opacity: 0;}
+  				100%{margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;}
+			  }
+			
+			 #two
+			{
+			    -webkit-animation-name:             animate-two; 
+			    -webkit-animation-duration:         1.5s; 
+			    -webkit-animation-iteration-count:  1;
+			    -webkit-animation-timing-function: ease-out;
+			    }
+
+
+			@-webkit-keyframes animate-three {
+  				0%{opacity:0;margin-bottom: 1000px;margin-left: 0;margin-right: 0;}
+  				70%{opacity: 0;}
+  				100%{margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;}
+			  }
+			
+			 #three
+			{
+			    -webkit-animation-name:             animate-three; 
+			    -webkit-animation-duration:         1.5s; 
+			    -webkit-animation-iteration-count:  1;
+			    -webkit-animation-timing-function: ease-out;
+			    }
+
+
+			@-webkit-keyframes animate-four {
+  				0%{opacity:0;margin-top: 1000px;margin-left: 0;margin-right: 1500px;}
+  				70%{opacity: 0;}
+  				100%{margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;}
+			  }
+			
+			 #four
+			{
+			    -webkit-animation-name:             animate-four; 
+			    -webkit-animation-duration:         1.5s; 
+			    -webkit-animation-iteration-count:  1;
+			    -webkit-animation-timing-function: ease-out;
+			    }
+
+
+			@-webkit-keyframes animate-five {
+  				0%{opacity: 0;}
+  				70%{opacity: 0;}
+  				100%{margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;}
+			  }
+			
+			 #five
+			{
+			    -webkit-animation-name:             animate-five; 
+			    -webkit-animation-duration:         1.5s; 
+			    -webkit-animation-iteration-count:  1;
+			    -webkit-animation-timing-function: ease-out;
+			    }
+		

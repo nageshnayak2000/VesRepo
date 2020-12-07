@@ -19,7 +19,7 @@
       <h1>
         VesRepo
       </h1>
-      <button onclick="location.href='Homepage.php'" class="sign_btn btn1">Back</button>     
+      <button onclick="location.href='index.php'" class="sign_btn btn1">Back</button>     
     </nav>
   </div>
 <form class="box" action="admin_login.php" method="post">
