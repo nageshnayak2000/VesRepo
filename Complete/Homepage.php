@@ -44,7 +44,7 @@
       the largest student collection drive <br>of VESIT
     </h1>
     <section class="container1">
-      <button data-hover="click me!">
+      <button  onclick="location.href='profile.php'"data-hover="click me!">
         <div>View Profile</div>
       </button>
     </section>

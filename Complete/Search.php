@@ -104,7 +104,7 @@ $userid= $_SESSION['id'];
                 $qu_ot="SELECT first_name, last_name, branch, year, user_id from user where user_id in(SELECT user_id from profile where account_id in(select account_id from other)) "; 
                 $res_ot=mysqli_query($conn, $qu_ot) or die ("Error: " . mysqli_error($conn)); 
             } else {
-                echo "Select option to continue";
+                // echo "Select option to continue";
             }
         } 
     ?>

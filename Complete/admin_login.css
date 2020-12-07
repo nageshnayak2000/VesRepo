@@ -127,15 +127,17 @@ button div {
   font-family: "Oxygen", sans-serif;
 }
 .box {
-    width: 300px;
+  border: 2px solid orange;
+  width: 300px;
     padding: 40px;
     position: absolute;
     top: 50%;
     left: 25%;
     transform: translate(-50%, -50%);
-    background: #191970	;
+    background: white	;
     text-align: center;
-}
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
 .circular-img{
   position: absolute;
     top: 18.9%;
@@ -143,7 +145,7 @@ button div {
 }
 
 .box h1 {
-    color: white;
+    color: #191970;
     text-transform: uppercase;
     font-weight: 500;
 }
@@ -151,7 +153,7 @@ button div {
 .box input[type="text"],
 .box input[type="password"] {
     border: 0;
-    background: none;
+    background: orange;
     display: block;
     margin: 20px auto;
     text-align: center;
@@ -171,23 +173,64 @@ button div {
 }
 
 .box input[type="submit"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid rgb(4, 88, 84);
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;
+  background: transparent;
+  outline: none;
+  position: relative;
+  margin-top: 20px;
+  border: 2px solid orange;
+  padding: 15px 50px;
+  overflow: hidden;
+  border-radius: 25px;
+  width: 200px;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: orange;
+  letter-spacing: 3px;
+ 
+  transition: all 0.3s ease-in-out;
 }
 
 .box input[type="submit"]:hover {
-    background: cadetblue;
+  color: black;
+  background-color: orange;
 }
+.box input[type="submit"]:after{
+content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.box input[type="submit"]:hover:after {
+  opacity: 1;
+  right: 0;
+}
+  
+
+
+/*button:before (attr data-hover)*/
+.box input[type="submit"]:hover:before {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+.box input[type="submit"]:before {
+    content: attr(data-hover);
+    position: absolute;
+    top: 1.2em;
+    left: 0;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 1em;
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all 0.3s ease-in-out;
+}
+/*button div (button text before hover)*/
+
+
 @media screen and (max-width: 1500px){
   .circular-img img{
       width: 600px;

@@ -201,7 +201,7 @@ section.container {
 {
     margin: 25px auto;
     font-family: "Oxygen", sans-serif;
-    height: 600px;
+    /* height: 600px; */
 }
 
 .table-row{

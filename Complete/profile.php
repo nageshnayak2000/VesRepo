@@ -165,7 +165,7 @@ $year= $_SESSION['year'];
 		 
 	$sql = "UPDATE profile SET hobbies='{$hob}' WHERE account_id='{$accountid}'" ;
 		 if (mysqli_query($conn, $sql)) {
-			echo "New record created successfully !";
+				// echo "New record created successfully !";
 		 } else {
 			echo "Error: " . $sql . "
 	" . mysqli_error($conn);
@@ -187,26 +187,6 @@ $year= $_SESSION['year'];
 	$result_hobbies=mysqli_query($conn, $query_hob);
 	?>
 
-<<<<<<< HEAD
-<body>
-<div class="header">
-    <nav id="navbar">
-      <div id="logo">
-          <img src="/Images/Logo.png" alt="VESIT">
-      </div>
-      <h3>
-        VesRepo
-	  </h3>     
-	  <button class="sign_btn"><a href="logout.php">Logout</a></button> 
-    
-    </nav>
-  </div>
-	<div class="profile-main" id ="pp">
-		<div class="profile-header">
-			<div class="user-detail">
-				<div class="user-image">
-					<img src="http://nicesnippets.com/demo/up-profile.jpg">
-=======
 
 
 	<body>
@@ -220,7 +200,6 @@ $year= $_SESSION['year'];
 					<h1>
 						VesRepo
 					</h1>
->>>>>>> 702fa9cfa1c3edec17bafe3cf770dd5e00d90815
 				</div>
 				<button onclick="location.href='logout.php'" class="sign_btn">Logout</button>
 				<div class="svg" onclick="location.href='logout.php'"><svg height="35pt" viewBox="0 -10 490.66667 490"

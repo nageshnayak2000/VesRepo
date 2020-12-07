@@ -12,37 +12,16 @@ body {
   position:relative;
 }
 .header h1 {
-    position: relative;
-    color: aliceblue;
-    top: 2px;
-    font-size: 40px;
-    font-family: 'Kanit', sans-serif;
-}
-
-#navbar {
-    display: flex;
-    align-items: inherit;
-    border-bottom: 5px solid orange;
-    background: rgb(103, 106, 126);
-    background: radial-gradient(
-        circle,
-        rgba(103, 106, 126, 1) 0%,
-        rgba(24, 72, 129, 1) 100%
-    );
-}
-.sign_btn {
-  height: 50px;
-  width: 160px;
-  font-size: 18px;
-  color: white;
-  border-radius: 12px;
-  margin-top: 1cm;
-  margin-right: 1%;
-  transition: 0.8s;
   position: relative;
-  overflow: hidden;
+  color: aliceblue;
+  top: -5px;
+  font-size: 40px;
+  font-family: 'Kanit', sans-serif;
 }
 
+.left-side{
+  display: flex;
+}
 button {
   background: transparent;
   outline: none;
@@ -96,51 +75,63 @@ button div {
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
   font-family: "Poppins", sans-serif;
 }
-#navbar::before {
-    content: "";
-    background-color: black;
-    position: absolute;
-    /* top: 0px;
-    right: 0px; */
-    height: 17%;
-    width: 100%;
-    z-index: -1;
-    opacity: 1.5;
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: inherit;
+  border-bottom: 5px solid orange;
+  background: rgb(103, 106, 126);
+  background: radial-gradient(
+      circle,
+      rgba(103, 106, 126, 1) 0%,
+      rgba(24, 72, 129, 1) 100%
+  );
 }
 
-#navbar ul {
-    display: flex;
+
+#logo {
+  margin: 5px 0px;
+  margin-left: 2%;
 }
 
-#navbar ul li {
-    list-style: none;
-    font-size: 1.3rem;
+.sign_btn {
+  right: 0.3rem;
+  height: 50px;
+  width: 160px;
+  font-size: 18px;
+  color: white;
+  border-radius: 12px;
+  margin-top: 1cm;
+  margin-right: 1%;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
 }
 
-#navbar ul li a {
-    display: block;
-    color: white;
-    border-radius: 20px;
-    padding: 3px 15px;
-    margin: 23px 20px;
-    text-decoration: none;
-    font-family: "Poppins", sans-serif;
+button {
+  background: transparent;
+  outline: none;
+  position: relative;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 2px solid orange;
+  padding: 15px 43px;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 150px;
 }
 
-#navbar ul li a:hover {
-    color: black;
-    background-color: white;
+button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: orange;
 }
 
-#logo img {
-    margin: 5px 30px;
+.svg{
+  display: none;
+  fill: orange;
 }
-
-.vl {
-    border-left: 3px solid white;
-    margin-top: 20px;
-    height: 73px;
-  }
 
 section.container {
     text-align: center;
