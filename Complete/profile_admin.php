@@ -14,8 +14,8 @@ if(!$conn){
 // if (!isset($_SESSION["loggedin"])){
 // 	header("location:check.php");
 // }
-if(isset($_SESSION["fname"])){
-    // echo "From Admin";
+if(!isset($_SESSION["check"])){
+    header("Location:Search.php");
 }
 $firstname=$_SESSION["fname"];
 $userid=$_SESSION["iduser"];

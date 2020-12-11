@@ -229,7 +229,7 @@ error_reporting(E_ERROR | E_PARSE);
            $_SESSION["iduser"]=$row['user_id'];
            $_SESSION["branch"]=$row['branch'];
            $_SESSION["year"]=$row['year'];
-           
+            $_SESSION["check"]=TRUE;
             ?>
 
             <div data-label="Profile" class="table-cell">
@@ -280,6 +280,8 @@ error_reporting(E_ERROR | E_PARSE);
            $_SESSION["iduser"]=$row['user_id'];
            $_SESSION["branch"]=$row['branch'];
            $_SESSION["year"]=$row['year'];
+           $_SESSION["check"]=TRUE;
+
            
             ?>
             <div data-label="Profile" class="table-cell">
@@ -328,6 +330,8 @@ if(mysqli_num_rows($res_ws)>0){
            $_SESSION["iduser"]=$row['user_id'];
            $_SESSION["branch"]=$row['branch'];
            $_SESSION["year"]=$row['year'];
+           $_SESSION["check"]=TRUE;
+
            
             ?>
             <div data-label="Profile" class="table-cell">
@@ -376,6 +380,8 @@ if(mysqli_num_rows($res_com)>0){
            $_SESSION["iduser"]=$row['user_id'];
            $_SESSION["branch"]=$row['branch'];
            $_SESSION["year"]=$row['year'];
+           $_SESSION["check"]=TRUE;
+
            
             ?>
             <div data-label="Profile" class="table-cell">
@@ -423,6 +429,8 @@ if(mysqli_num_rows($res_cs)>0){
            $_SESSION["fname"]=$row['first_name'];
            $_SESSION["iduser"]=$row['user_id'];
            $_SESSION["branch"]=$row['branch'];
+           $_SESSION["check"]=TRUE;
+
            $_SESSION["year"]=$row['year'];
            
             ?>
@@ -472,6 +480,8 @@ if(mysqli_num_rows($res_ot)>0){
            $_SESSION["iduser"]=$row['user_id'];
            $_SESSION["branch"]=$row['branch'];
            $_SESSION["year"]=$row['year'];
+           $_SESSION["check"]=TRUE;
+
            
             ?>
             <div data-label="Profile" class="table-cell">

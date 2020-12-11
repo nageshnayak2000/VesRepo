@@ -2,6 +2,6 @@
 
 <?php
 session_start();
-unset($_SESSION['fname']);
+unset($_SESSION['check']);
 header("Location:Search.php");
 ?> 	
