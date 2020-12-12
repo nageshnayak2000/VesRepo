@@ -204,6 +204,8 @@ $userid= $_SESSION['id'];
         </div>
         <?php  
 error_reporting(E_ERROR | E_PARSE);
+if (!empty($res_name)) {
+
         if(mysqli_num_rows($res_name)>0){
                 while($row = mysqli_fetch_array($res_name))  
                 { 
@@ -252,9 +254,14 @@ error_reporting(E_ERROR | E_PARSE);
         <?php
                           }
                         }
+                    }else {
+                            echo "0 results";
+                        }
             ?>
         <?php  
 error_reporting(E_ERROR | E_PARSE);
+if (!empty($res_in)) {
+
         if(mysqli_num_rows($res_in)>0){
                 while($row = mysqli_fetch_array($res_in))  
                 { 
@@ -284,7 +291,7 @@ error_reporting(E_ERROR | E_PARSE);
 
            
             ?>
-            <div data-label="Profile" class="table-cell">
+            <div data-label="Profile" class="table-cell">   
                 <a href="profile_admin.php">
                     <p class="table-cell-sec">View Profile</p>
                 </a>
@@ -303,10 +310,15 @@ error_reporting(E_ERROR | E_PARSE);
         <?php
                           }
                         }
+                    }else {
+                        echo "0 results";
+                    }
             ?>
         <?php  
 error_reporting(E_ERROR | E_PARSE);
-if(mysqli_num_rows($res_ws)>0){
+if (!empty($res_ws)) {
+
+    if(mysqli_num_rows($res_ws)>0){
                 while($row = mysqli_fetch_array($res_ws))  
                 { 
   
@@ -353,10 +365,15 @@ if(mysqli_num_rows($res_ws)>0){
         <?php
                           }
                         }
+                    }else {
+                        echo "0 results";
+                    }
             ?>
         <?php  
 error_reporting(E_ERROR | E_PARSE);
-if(mysqli_num_rows($res_com)>0){
+if (!empty($res_com)) {
+
+    if(mysqli_num_rows($res_com)>0){
                 while($row = mysqli_fetch_array($res_com))  
                 { 
   
@@ -403,10 +420,15 @@ if(mysqli_num_rows($res_com)>0){
         <?php
                           }
                         }
+                    }else {
+                        echo "0 results";
+                    }
             ?>
         <?php  
 error_reporting(E_ERROR | E_PARSE);
-if(mysqli_num_rows($res_cs)>0){
+if (!empty($res_cs)) {
+
+    if(mysqli_num_rows($res_cs)>0){
                 while($row = mysqli_fetch_array($res_cs))  
                 { 
   
@@ -453,10 +475,15 @@ if(mysqli_num_rows($res_cs)>0){
         <?php
                           }
                         }
+                    }else {
+                        echo "0 results";
+                    }
             ?>
         <?php  
 error_reporting(E_ERROR | E_PARSE);
-if(mysqli_num_rows($res_ot)>0){
+if (!empty($res_ot)) {
+
+    if(mysqli_num_rows($res_ot)>0){
                 while($row = mysqli_fetch_array($res_ot))  
                 { 
   
@@ -503,6 +530,9 @@ if(mysqli_num_rows($res_ot)>0){
         <?php
                           }
                         }
+                    }else {
+                        echo "0 results";
+                    }
             ?>
 
 
